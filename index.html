@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Moplaco Trading PLC — Ethiopian green coffee exporter since 1971. Specialty-grade coffee sourced, processed and exported from Yirgacheffe, Sidamo, Guji, Harrar and more." />
+  <meta property="og:title" content="Moplaco Trading PLC — Ethiopian Green Coffee Exporter" />
+  <meta property="og:description" content="50+ years at origin. Farm-to-ship traceability. Washed, natural and honey process from Ethiopia's finest regions." />
+  <meta property="og:image" content="assets/img/og-image.jpg" />
+  <title>Moplaco Trading PLC — Ethiopian Green Coffee Exporter</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,400&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tabler Icons (outline) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+
+  <!-- Styles — load order matters -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/moplaco.css" />
+  <link rel="stylesheet" href="css/galani.css" />
+
+  <style>
+    /* Form status message */
+    .form-status { display:none; padding:10px 14px; border-radius:2px; font-size:12px; margin-top:10px; }
+    .form-status--success { background:#d4edda; color:#155724; }
+    .form-status--error   { background:#f8d7da; color:#721c24; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════════════════════ -->
+  <header>
+    <nav class="site-nav" aria-label="Main navigation">
+
+      <!-- Logo -->
+      <a href="#moplaco" class="nav-logo" data-tab="moplaco" aria-label="Moplaco Trading PLC — home">
+        <!-- Inline SVG logo mark (Trinity star) -->
+        <svg class="nav-logo-badge" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="50" cy="50" r="48" fill="none" stroke="#D4A847" stroke-width="1.5"/><circle cx="50" cy="50" r="42" fill="none" stroke="#D4A847" stroke-width="0.4"/><polygon points="50,6 41,47 59,47" fill="#D4A847"/><polygon points="50,6 41,47 59,47" fill="#D4A847" transform="rotate(120,50,50)"/><polygon points="50,6 41,47 59,47" fill="#D4A847" transform="rotate(240,50,50)"/><circle cx="50" cy="50" r="8" fill="#1C1008" stroke="#D4A847" stroke-width="0.8"/><circle cx="50" cy="50" r="2.5" fill="#D4A847"/><text x="50" y="21" text-anchor="middle" font-family="Outfit,sans-serif" font-size="9" font-weight="600" fill="#1C1008">M</text><text x="73" y="67" text-anchor="middle" font-family="Outfit,sans-serif" font-size="9" font-weight="600" fill="#1C1008">P</text><text x="27" y="67" text-anchor="middle" font-family="Outfit,sans-serif" font-size="9" font-weight="600" fill="#1C1008">C</text></svg>
+        <span class="nav-logo-text">MOPL<span class="accent">A</span>CO</span>
+      </a>
+
+      <!-- Desktop links -->
+      <div class="nav-links" id="nav-links">
+        <a href="#story">Our Story</a>
+        <a href="coffees.html">Our Coffees</a>
+        <a href="farm.html">Farm &amp; Processing</a>
+        <a href="#sustainability">Sustainability</a>
+        <a href="#insights">Coffee Insights</a>
+        <a href="https://www.galanicoffee.com/" target="_blank" rel="noopener" class="nav-galani">Galani Coffee ↗</a>
+        <a href="#journal">Updates</a>
+        <a href="#contact" class="nav-cta">Request Samples</a>
+      </div>
+
+      <!-- Mobile toggle -->
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+
+    </nav>
+
+    <!-- Tab bar — switches between Moplaco and Galani -->
+    <div class="tab-bar" role="tablist" aria-label="Brand sections">
+      <button class="tab-bar__tab active--moplaco" data-tab="moplaco" role="tab" aria-selected="true" aria-controls="page-moplaco">
+        Moplaco Trading PLC — Green Coffee Export
+      </button>
+      <button class="tab-bar__tab" data-tab="galani" role="tab" aria-selected="false" aria-controls="page-galani">
+        Galani Coffee — Addis Ababa Cafés &amp; Training
+      </button>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════════════════════════
+       MOPLACO PAGE
+  ═══════════════════════════════════════════════════════════ -->
+  <main id="page-moplaco" class="site-page" role="tabpanel" aria-labelledby="tab-moplaco">
+
+    <!-- 1. HERO ─────────────────────────────────────────────── -->
+    <section class="hero" aria-label="Hero">
+      <img
+        class="hero__img"
+        src="https://moplaco.com/assets/img/banner/coffee_r1.jpg"
+        alt="Moplaco coffee farm — Sheka, Ethiopia"
+        onerror="this.src='https://moplaco.com/assets/img/banner/crops.jpg'"
+      />
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="hero__content">
+        <span class="eyebrow">Ethiopian Green Coffee Exporter · Est. 1971</span>
+        <h1 class="hero__headline">
+          Born in Ethiopia.<br>
+          Trusted by the <em>World.</em>
+        </h1>
+        <p class="hero__sub">
+          Moplaco sources, processes, and exports specialty-grade Ethiopian coffee
+          to discerning roasters across four continents — with full traceability
+          from farm to shipment.
+        </p>
+        <div class="hero__btns">
+          <a href="#contact" class="btn btn--gold">Request Samples</a>
+          <a href="#coffees" class="btn btn--ghost">Explore Our Coffees</a>
+        </div>
+      </div>
+      <div class="hero__year" aria-hidden="true">
+        <div class="hero__year-num">1971</div>
+        <div class="hero__year-label">50+ years at origin</div>
+      </div>
+    </section>
+
+    <!-- 2. STATS BAR ─────────────────────────────────────────── -->
+    <div class="stats-bar" aria-label="Key figures">
+      <div class="stat-item">
+        <span class="stat-number">50+</span>
+        <span class="stat-label">Years at origin</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">40+</span>
+        <span class="stat-label">Countries reached</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">6</span>
+        <span class="stat-label">Ethiopian origins</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">5</span>
+        <span class="stat-label">Galani cafés in Addis</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">Farm → Cup</span>
+        <span class="stat-label">Full vertical integration</span>
+      </div>
+    </div>
+
+    <!-- 3. OUR STORY ─────────────────────────────────────────── -->
+    <section class="story-section section" id="story" aria-labelledby="story-heading">
+      <div class="container">
+        <div class="two-col two-col--60-40">
+
+          <div class="reveal">
+            <span class="eyebrow eyebrow--muted">Our story</span>
+            <h2 class="section-heading" id="story-heading">
+              Five decades of Ethiopian coffee — from Harar to the world
+            </h2>
+            <p class="section-body">
+              Born in the mountains of Harar-Hirna in 1940, our founder Yanni Georgalis
+              grew up with coffee in his blood. Moplaco was established in 1971 in Dire
+              Dawa and Harar — the historic heart of Harar coffee export — and has been
+              growing ever since.
+            </p>
+            <p class="section-body">
+              Today, under General Manager Heleanna Georgalis, Moplaco is a vertically
+              integrated operation: we farm our own coffee at Sheka, operate washing
+              stations across Sidamo and Yirgacheffe, run an in-house quality lab, and
+              export to roasters across 40+ countries. We also roast and serve under our
+              Galani Coffee brand in Addis Ababa.
+            </p>
+            <p class="section-body">
+              Our name, Moplaco, stands for <em>Mocca Plantation Company</em> — a tribute
+              to Harar coffee's legendary Mocca flavour. The three-pointed star in our
+              logo is drawn from the Imperial symbol of Haile Selassie, representing the
+              Power of the Trinity. Blue was chosen in memory of our Greek roots.
+            </p>
+          </div>
+
+          <div class="reveal">
+            <div class="story-timeline" aria-label="Company timeline">
+              <div class="timeline-item">
+                <div class="timeline-item__year">1971</div>
+                <div class="timeline-item__text">
+                  Moplaco founded in Dire Dawa by Yanni Georgalis, exporting
+                  predominantly Harar coffee.
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-item__year">1990s – 2000s</div>
+                <div class="timeline-item__text">
+                  Expansion into Addis Ababa. Chelelectu dry mill in Yirgacheffe
+                  acquired (2005), broadening origins to all of Ethiopia.
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-item__year">2010s</div>
+                <div class="timeline-item__text">
+                  Focus shifts to specialty export. Sheka forest farm acquired.
+                  Boutique washing station in Sidamo Logita purchased (2017).
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-item__year">2018</div>
+                <div class="timeline-item__text">
+                  Galani Coffee opens in Addis Ababa — Moplaco's consumer-facing
+                  café and roasting brand, bridging origin and cup.
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-item__year">2020</div>
+                <div class="timeline-item__text">
+                  Moplaco named curator for Ethiopia's first Cup of Excellence —
+                  a milestone for Ethiopian specialty coffee on the world stage.
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-item__year">Today</div>
+                <div class="timeline-item__text">
+                  Exporting to 40+ countries. 5 Galani cafés. EUDR-compliant.
+                  Farming, processing, exporting, and serving — from one family.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. OUR COFFEES & ORIGINS ──────────────────────────────── -->
+    <section class="section section--warm" id="coffees" aria-labelledby="coffees-heading">
+      <div class="container">
+        <div class="two-col">
+
+          <div class="reveal">
+            <span class="eyebrow eyebrow--muted">What we offer</span>
+            <h2 class="section-heading" id="coffees-heading">
+              The full spectrum of Ethiopian specialty coffee
+            </h2>
+            <p class="section-body">
+              From the floral jasmine notes of Yirgacheffe to the winey complexity of
+              Harrar natural, Moplaco's sourcing network spans Ethiopia's finest regions.
+              As exporter, processor, and farmer, we control quality at every stage.
+            </p>
+            <p class="section-body">
+              All lots are cupped and graded in our in-house lab before acceptance.
+              We offer washed, natural, and honey process, with full pre-shipment
+              documentation including moisture, water activity, and sensory reports.
+            </p>
+
+            <!-- Origin card -->
+            <div class="origin-card" aria-label="Available origins">
+              <div class="origin-card__title">Available Origins</div>
+              <div class="origin-card__sub">Current &amp; seasonal offerings</div>
+              <div class="tag-group">
+                <span class="tag tag--gold">Yirgacheffe</span>
+                <span class="tag tag--gold">Sidamo</span>
+                <span class="tag tag--gold">Guji</span>
+                <span class="tag">Harrar</span>
+                <span class="tag">Limu</span>
+                <span class="tag">Sheka (own farm)</span>
+                <span class="tag">Jimma</span>
+              </div>
+              <div class="origin-card__kv">
+                <span class="origin-card__key">Process types</span>
+                <span class="origin-card__value">Washed · Natural · Honey</span>
+              </div>
+              <div class="origin-card__kv">
+                <span class="origin-card__key">Certifications</span>
+                <span class="origin-card__value">Organic · Fair Trade</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Photo grid -->
+          <div class="photo-grid reveal" aria-label="Origin photography">
+            <img
+              class="photo-grid__tall"
+              src="https://moplaco.com/assets/img/banner/sidamo.jpg"
+              alt="Sidamo washing station"
+            />
+            <img
+              src="https://moplaco.com/assets/img/banner/coffee_p1.jpg"
+              alt="Coffee processing"
+            />
+            <img
+              src="https://moplaco.com/assets/img/banner/yergachefe.jpg"
+              alt="Yirgacheffe"
+            />
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SUPPLY CHAIN ──────────────────────────────────────── -->
+    <section class="supply-chain-section" id="supply-chain" aria-labelledby="supply-heading">
+      <div class="container">
+        <span class="eyebrow eyebrow--muted reveal">How we work</span>
+        <h2 class="section-heading reveal" id="supply-heading">
+          Exporter. Processor. Farmer.
+        </h2>
+        <p class="section-body reveal">
+          Moplaco's unique strength is vertical integration from farm to freight —
+          giving international buyers consistent quality they can trace at every step.
+        </p>
+        <div class="process-row reveal" role="list">
+          <div class="process-step" role="listitem">
+            <i class="ti ti-plant process-step__icon" aria-hidden="true"></i>
+            <div class="process-step__title">Farm</div>
+            <div class="process-step__desc">
+              Our Sheka forest farm in southwest Ethiopia produces single-origin lots
+              under direct management. Neighbouring farmers supply cherry to our stations.
+            </div>
+          </div>
+          <div class="process-step" role="listitem">
+            <i class="ti ti-droplet process-step__icon" aria-hidden="true"></i>
+            <div class="process-step__title">Process</div>
+            <div class="process-step__desc">
+              Washing stations in Sidamo Logita, Yirgacheffe, Chelelectu, and Chelbesa.
+              Both washed and natural process. Every lot traceable to station and kebele.
+            </div>
+          </div>
+          <div class="process-step" role="listitem">
+            <i class="ti ti-microscope process-step__icon" aria-hidden="true"></i>
+            <div class="process-step__title">Quality control</div>
+            <div class="process-step__desc">
+              In-house lab with certified Q graders. Moisture, water activity (target
+              &lt;0.65 Aw), and full sensory cupping at intake, pre-shipment, and export.
+            </div>
+          </div>
+          <div class="process-step" role="listitem">
+            <i class="ti ti-ship process-step__icon" aria-hidden="true"></i>
+            <div class="process-step__title">Export</div>
+            <div class="process-step__desc">
+              GrainPro-lined bags, EUDR-compliant documentation, coordination via
+              Port of Djibouti. Export to Europe, Asia, North America, and the Middle East.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sheka farm full-bleed photo -->
+    <div class="photo-section" aria-label="Sheka farm">
+      <img
+        class="photo-section__img"
+        src="https://moplaco.com/assets/img/banner/crops.jpg"
+        alt="Sheka forest farm, southwest Ethiopia"
+      />
+      <div class="photo-section__overlay">
+        <div class="photo-section__content reveal">
+          <span class="eyebrow">Our farm</span>
+          <h2 class="section-heading section-heading--light">
+            Sheka — a sanctuary of birds, animals and trees
+          </h2>
+          <p class="section-body section-body--light">
+            A forest farm in southwest Ethiopia where we grow, process, and prepare
+            our own coffee alongside neighbouring farmers. Ideal for coffee — and
+            eco-tourism.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. SUSTAINABILITY & SOCIAL IMPACT ──────────────────────── -->
+    <section class="sustain-section section" id="sustainability" aria-labelledby="sustain-heading">
+      <div class="container">
+        <div class="two-col">
+          <div class="reveal">
+            <span class="eyebrow eyebrow--muted">Sustainability &amp; social impact</span>
+            <h2 class="section-heading" id="sustain-heading">
+              Good coffee means good communities
+            </h2>
+            <p class="section-body">
+              Moplaco works directly with farming communities surrounding our washing
+              stations in Sidamo, Yirgacheffe, and Sheka. We invest in school repairs,
+              classroom furniture, and farmer support programmes.
+            </p>
+            <p class="section-body">
+              We actively advocate against eucalyptus monoculture — which depletes
+              soil fertility in coffee regions — and promote shade-grown, organically
+              managed farming that sustains both the land and the livelihoods connected
+              to it.
+            </p>
+            <p class="section-body">
+              EUDR-ready: Moplaco's supply chain documentation meets the EU Deforestation
+              Regulation requirements, giving buyers in Europe the traceability assurance
+              they need from 2025 onwards.
+            </p>
+
+            <div class="cert-row" aria-label="Certifications">
+              <div class="cert-badge"><i class="ti ti-leaf" aria-hidden="true"></i> Organic certified</div>
+              <div class="cert-badge"><i class="ti ti-scale" aria-hidden="true"></i> Fair Trade</div>
+              <div class="cert-badge"><i class="ti ti-shield-check" aria-hidden="true"></i> EUDR ready</div>
+              <div class="cert-badge"><i class="ti ti-certificate" aria-hidden="true"></i> ECX licensed</div>
+            </div>
+          </div>
+
+          <div class="reveal">
+            <div class="sustain-impact-grid" aria-label="Impact numbers">
+              <div class="impact-item">
+                <span class="impact-item__num">1971</span>
+                <span class="impact-item__label">Year established — one of Ethiopia's oldest exporters</span>
+              </div>
+              <div class="impact-item">
+                <span class="impact-item__num">40+</span>
+                <span class="impact-item__label">Countries receiving Ethiopian coffee from Moplaco</span>
+              </div>
+              <div class="impact-item">
+                <span class="impact-item__num">4</span>
+                <span class="impact-item__label">Washing stations directly operated by Moplaco</span>
+              </div>
+            </div>
+
+            <div style="margin-top: 32px;">
+              <span class="eyebrow eyebrow--muted" style="margin-bottom:14px; display:block;">We ship to</span>
+              <div class="dest-grid" aria-label="Export destinations">
+                <span class="dest-chip">🇩🇪 Germany</span>
+                <span class="dest-chip">🇯🇵 Japan</span>
+                <span class="dest-chip">🇺🇸 United States</span>
+                <span class="dest-chip">🇸🇦 Saudi Arabia</span>
+                <span class="dest-chip">🇰🇷 South Korea</span>
+                <span class="dest-chip">🇫🇷 France</span>
+                <span class="dest-chip">🇦🇺 Australia</span>
+                <span class="dest-chip">🇨🇳 China</span>
+                <span class="dest-chip">🇮🇹 Italy</span>
+                <span class="dest-chip">🇬🇧 United Kingdom</span>
+                <span class="dest-chip">+ 30 more</span>
+              </div>
+              <p style="margin-top:16px; font-size:11px; color:var(--text-light-secondary); line-height:1.8;">
+                Partner of La Marzocco · Member, Specialty Coffee Association<br>
+                Cup of Excellence Curator · Ethiopia 2020
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. QUOTE ─────────────────────────────────────────────── -->
+    <div class="quote-block" aria-label="Quote from Heleanna Georgalis">
+      <div class="quote-block__bg" style="background-image: url('https://moplaco.com/assets/img/banner/coffee_p1.jpg');" aria-hidden="true"></div>
+      <p class="quote-block__text">
+        "Good coffee is not an accident. It is the result of hard work and innovation —
+        starting from the farm, all the way to the final cup."
+      </p>
+      <div class="quote-block__attr">Heleanna Georgalis · General Manager, Moplaco Trading PLC</div>
+    </div>
+
+    <!-- 8. ETHIOPIAN COFFEE INSIGHTS ─────────────────────────── -->
+    <section class="section section--dark" id="insights" aria-labelledby="insights-heading">
+      <div class="container">
+        <span class="eyebrow reveal">Ethiopian coffee insights</span>
+        <h2 class="section-heading section-heading--light reveal" id="insights-heading">
+          Understanding the world's greatest coffee origin
+        </h2>
+        <p class="section-body section-body--light reveal" style="max-width:600px;">
+          Ethiopia is the birthplace of Arabica coffee. These resources help roasters,
+          buyers, and coffee lovers understand what makes Ethiopian coffee unique.
+        </p>
+
+        <div class="insight-grid reveal" role="list">
+          <div class="insight-card" role="listitem">
+            <i class="ti ti-map-2 insight-card__icon" aria-hidden="true"></i>
+            <div class="insight-card__title">Ethiopian Coffee Map</div>
+            <div class="insight-card__body">
+              Explore the key growing regions — Yirgacheffe, Sidamo, Guji, Harrar, Limu,
+              Jimma, Kaffa, and Sheka — and understand how altitude, terroir, and
+              heirloom varieties shape each origin's flavour profile.
+            </div>
+          </div>
+          <div class="insight-card" role="listitem">
+            <i class="ti ti-flask insight-card__icon" aria-hidden="true"></i>
+            <div class="insight-card__title">The Science of Coffee</div>
+            <div class="insight-card__body">
+              From moisture content and water activity to processing chemistry and
+              green coffee storage — an in-depth look at the science behind
+              Moplaco's quality protocols, grounded in decades of origin expertise.
+            </div>
+          </div>
+          <div class="insight-card" role="listitem">
+            <i class="ti ti-history insight-card__icon" aria-hidden="true"></i>
+            <div class="insight-card__title">History of Ethiopian Trade</div>
+            <div class="insight-card__body">
+              From the ancient coffee forests of Kaffa to the ECX auction system and
+              the rise of direct trade — the story of how Ethiopian coffee reached
+              the world, and Moplaco's place in that history since 1971.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. GALANI BRIDGE BANNER ──────────────────────────────── -->
+    <div class="bridge-banner" aria-label="Galani Coffee">
+      <p class="bridge-banner__text">
+        Our coffee doesn't just travel the world — it's roasted and served daily at
+        <strong>Galani Coffee</strong>, our own cafés in Addis Ababa. The proof is in the cup.
+      </p>
+      <button class="btn btn--outline-gold" data-tab="galani">
+        Discover Galani Coffee →
+      </button>
+    </div>
+
+    <!-- 10. UPDATES / JOURNAL ────────────────────────────────── -->
+    <section class="journal-section" id="journal" aria-labelledby="journal-heading">
+      <div class="container">
+        <span class="eyebrow eyebrow--muted reveal">Updates</span>
+        <h2 class="section-heading reveal" id="journal-heading">From the field</h2>
+        <p class="section-body reveal">
+          News, harvest updates, and insights from Moplaco's farms, washing stations,
+          and trading operations.
+        </p>
+
+        <div class="journal-grid reveal" role="list">
+
+          <article class="post-card" role="listitem">
+            <img
+              class="post-card__img"
+              src="https://moplaco.com/assets/img/banner/coffee_p1.jpg"
+              alt="2025/26 Ethiopia harvest preview"
+            />
+            <div class="post-card__body">
+              <div class="post-card__date">June 2026 · Harvest Update</div>
+              <h3 class="post-card__title">2025/26 Ethiopia Harvest — What to Expect</h3>
+              <p class="post-card__excerpt">
+                Early indications from Yirgacheffe and Guji suggest a strong crop.
+                Sidamo naturals are showing exceptional sweetness. Contact us for
+                pre-shipment sample availability.
+              </p>
+            </div>
+          </article>
+
+          <article class="post-card" role="listitem">
+            <img
+              class="post-card__img"
+              src="https://moplaco.com/assets/img/banner/sidamo.jpg"
+              alt="EUDR compliance update"
+            />
+            <div class="post-card__body">
+              <div class="post-card__date">April 2026 · Compliance</div>
+              <h3 class="post-card__title">Moplaco EUDR Readiness — Full Traceability in Place</h3>
+              <p class="post-card__excerpt">
+                All Moplaco lots now carry kebele-level traceability data meeting EU
+                Deforestation Regulation requirements. Documentation available on request
+                for all European buyers.
+              </p>
+            </div>
+          </article>
+
+          <article class="post-card" role="listitem">
+            <img
+              class="post-card__img"
+              src="https://moplaco.com/assets/img/banner/crops.jpg"
+              alt="Sheka farm update"
+            />
+            <div class="post-card__body">
+              <div class="post-card__date">February 2026 · Farm</div>
+              <h3 class="post-card__title">Sheka Farm: First Fully Washed Lots Now Available</h3>
+              <p class="post-card__excerpt">
+                Following the installation of our new washing station at Sheka,
+                the first washed single-origin lots from our forest farm are now
+                available for sampling. Limited availability.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. CONTACT ──────────────────────────────────────────── -->
+    <section class="contact-section" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="two-col two-col--40-60">
+
+          <div class="reveal">
+            <span class="eyebrow eyebrow--muted">Work with us</span>
+            <h2 class="section-heading" id="contact-heading" style="color:var(--espresso);">
+              Ready to source Ethiopian coffee?
+            </h2>
+            <p class="section-body">
+              Tell us your origin preference, target cup profile, and required volume.
+              Our team in Addis Ababa responds within 48 hours with availability
+              and samples.
+            </p>
+            <div class="contact-info">
+              <div>📍 Addis Ababa, Ethiopia</div>
+              <div>✉️ info@moplaco.com</div>
+              <div>📞 (+251) 116 455 999</div>
+              <div>🌐 Shipping via Port of Djibouti</div>
+              <div>🔗 <a href="https://www.instagram.com/moplaco_trading/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">instagram.com/moplaco_trading</a></div>
+            </div>
+          </div>
+
+          <form id="contact-form" class="reveal" novalidate aria-label="Sample request form">
+            <div class="form-field">
+              <label for="f-name" class="sr-only">Your name and company</label>
+              <input id="f-name" name="name" type="text" placeholder="Your name &amp; company" required />
+            </div>
+            <div class="form-field">
+              <label for="f-email" class="sr-only">Business email</label>
+              <input id="f-email" name="email" type="email" placeholder="Business email" required />
+            </div>
+            <div class="form-field">
+              <label for="f-origin" class="sr-only">Origin of interest</label>
+              <select id="f-origin" name="origin">
+                <option value="">Origin of interest…</option>
+                <option>Yirgacheffe</option>
+                <option>Sidamo</option>
+                <option>Guji</option>
+                <option>Harrar</option>
+                <option>Limu</option>
+                <option>Sheka (own farm)</option>
+                <option>Multiple / advise me</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="f-message" class="sr-only">Volume estimate and requirements</label>
+              <textarea id="f-message" name="message" placeholder="Volume estimate &amp; any specific requirements"></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send Inquiry</button>
+            <div id="form-status" role="alert" aria-live="polite"></div>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. FOOTER ───────────────────────────────────────────── -->
+    <footer class="site-footer" aria-label="Site footer">
+      <div class="container">
+        <div class="footer-top">
+          <div>
+            <div class="footer-logo-text">MOPLACO TRADING PLC</div>
+            <div class="footer-tagline">Ethiopian Green Coffee Exporter since 1971</div>
+          </div>
+          <nav class="footer-links" aria-label="Footer navigation">
+            <a href="#story">Our story</a>
+            <a href="#coffees">Coffees</a>
+            <a href="#supply-chain">Supply chain</a>
+            <a href="#sustainability">Sustainability</a>
+            <a href="#insights">Coffee insights</a>
+            <a href="#journal">Updates</a>
+            <a href="#galani" data-tab="galani" class="footer-galani">Galani Coffee</a>
+            <a href="#contact">Contact</a>
+          </nav>
+          <div class="footer-social" aria-label="Social media">
+            <a href="https://www.instagram.com/moplaco_trading/" target="_blank" rel="noopener" aria-label="Moplaco on Instagram">
+              <i class="ti ti-brand-instagram" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="footer-copy">© 2026 Moplaco Trading PLC · Addis Ababa, Ethiopia · All rights reserved</p>
+        </div>
+      </div>
+    </footer>
+
+  </main><!-- /page-moplaco -->
+
+  <!-- ══════════════════════════════════════════════════════════
+       GALANI PAGE
+       Full content lives in galani.html, loaded below via JS.
+       For a simpler single-file approach, paste galani.html's
+       <body> content directly inside this div.
+  ═══════════════════════════════════════════════════════════ -->
+  <div id="page-galani" class="site-page" role="tabpanel" aria-labelledby="tab-galani" hidden aria-hidden="true">
+    <!-- Galani content is in galani.html.
+         A developer can either:
+         (a) Copy galani.html body content here, OR
+         (b) Load it dynamically — see js/tabs.js comments -->
+    <div style="display:flex;align-items:center;justify-content:center;min-height:300px;background:var(--espresso);color:var(--text-muted);font-size:13px;">
+      Loading Galani Coffee…
+    </div>
+  </div>
+
+  <!-- Scripts — deferred so they don't block rendering -->
+  <script src="js/nav.js" defer></script>
+  <script src="js/tabs.js" defer></script>
+  <script src="js/scroll-reveal.js" defer></script>
+  <script src="js/form.js" defer></script>
+
+  <script>
+    // Inline loader: fetch galani.html and inject into the Galani page div
+    // This keeps both pages in separate files while functioning as one site.
+    document.addEventListener('DOMContentLoaded', function () {
+      fetch('galani.html')
+        .then(function (res) { return res.text(); })
+        .then(function (html) {
+          var parser = new DOMParser();
+          var doc = parser.parseFromString(html, 'text/html');
+          var content = doc.querySelector('.galani-content');
+          if (content) {
+            document.getElementById('page-galani').innerHTML = content.outerHTML;
+          }
+        })
+        .catch(function () {
+          // If served directly from file:// (no server), show a helpful message
+          document.getElementById('page-galani').innerHTML =
+            '<div style="padding:48px;text-align:center;background:var(--espresso);color:var(--text-muted);">' +
+            '<p style="font-size:14px;">To view the Galani Coffee section, serve this project via a local server.<br>' +
+            'Run: <code style="color:var(--gold);">python3 -m http.server 8000</code> then open <code style="color:var(--gold);">localhost:8000</code></p>' +
+            '</div>';
+        });
+    });
+  </script>
+
+</body>
+</html>

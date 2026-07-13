@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Moplaco Trading PLC — Our Coffees & Origins. Seven Ethiopian origins including Yirgacheffe, Sidamo, Guji, Harrar, Limu, Sheka and Jimma." />
+  <title>Our Coffees & Origins — Moplaco Trading PLC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,400&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/moplaco.css" />
+  <style>
+    /* ── Page-specific styles ── */
+    .oc-hero{position:relative;height:260px;overflow:hidden;background:var(--espresso);}
+    .oc-hero__img{width:100%;height:100%;object-fit:cover;display:block;opacity:.38;}
+    .oc-hero__overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(28,16,8,.97) 38%,rgba(28,16,8,.2));}
+    .oc-hero__content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 var(--gutter);}
+    .oc-hero__headline{font-family:var(--font-display);font-size:var(--text-xxl);font-weight:700;color:var(--text-on-dark);line-height:1.12;margin-bottom:10px;}
+    .oc-hero__headline em{font-style:italic;color:var(--gold);}
+    .oc-hero__sub{font-size:var(--text-sm);color:var(--text-muted);line-height:1.7;max-width:500px;}
+
+    .oc-filter{background:var(--espresso-mid);padding:14px var(--gutter);display:flex;gap:8px;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--border-dark);}
+    .oc-filter__label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);margin-right:4px;}
+    .oc-filter__btn{background:transparent;border:.5px solid #3A2A18;border-radius:var(--radius-sm);padding:5px 13px;font-size:10px;color:var(--text-muted);cursor:pointer;font-family:var(--font-body);transition:all .15s;}
+    .oc-filter__btn.active,.oc-filter__btn:hover{background:var(--gold);color:var(--espresso);border-color:var(--gold);font-weight:600;}
+
+    .oc-grid-wrap{background:var(--espresso);padding:3px;}
+    .oc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:3px;}
+
+    .oc-card{background:var(--espresso-light);border:none;cursor:pointer;text-align:left;overflow:hidden;position:relative;font-family:var(--font-body);transition:background .15s;}
+    .oc-card:hover .oc-card__img{opacity:.88;}
+    .oc-card.sel{outline:2px solid var(--gold);z-index:2;}
+    .oc-card__img{width:100%;height:150px;object-fit:cover;display:block;opacity:.65;transition:opacity .2s;}
+    .oc-card__overlay{position:absolute;top:0;left:0;right:0;height:150px;background:linear-gradient(to top,rgba(28,16,8,.85) 0%,transparent 60%);pointer-events:none;}
+    .oc-card__badges{position:absolute;top:9px;right:9px;display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end;}
+    .oc-card__badge{font-size:8px;font-weight:600;padding:2px 7px;border-radius:var(--radius-sm);background:rgba(28,16,8,.7);color:#9A8060;letter-spacing:.04em;}
+    .oc-card__badge--gold{background:var(--gold);color:var(--espresso);}
+    .oc-card__badge--farm{background:rgba(212,168,71,.15);color:var(--gold);border:.5px solid var(--gold);}
+    .oc-card__body{padding:14px 16px 16px;}
+    .oc-card__name{font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--text-on-dark);margin-bottom:2px;}
+    .oc-card__region{font-size:9px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);}
+
+    .oc-detail{background:var(--parchment-warm);display:none;}
+    .oc-detail.open{display:block;}
+    .oc-detail__split{display:grid;grid-template-columns:280px 1fr;}
+    .oc-detail__photo{position:relative;min-height:300px;}
+    .oc-detail__photo img{width:100%;height:100%;object-fit:cover;display:block;}
+    .oc-detail__photo-cap{position:absolute;bottom:0;left:0;right:0;background:rgba(28,16,8,.75);padding:14px 18px;}
+    .oc-detail__photo-region{font-size:9px;color:var(--gold-galani);letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px;}
+    .oc-detail__photo-name{font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--text-on-dark);}
+    .oc-detail__right{padding:24px 28px;display:flex;flex-direction:column;gap:14px;}
+    .oc-detail__desc{font-size:13px;color:#6B5030;line-height:1.8;}
+    .oc-specs{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+    .oc-spec{background:#fff;border:.5px solid var(--parchment-border);border-radius:var(--radius-sm);padding:10px 13px;}
+    .oc-spec__label{font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#9A6030;margin-bottom:3px;}
+    .oc-spec__value{font-size:11px;color:var(--espresso);line-height:1.4;}
+    .oc-flavors__label{font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#9A6030;margin-bottom:8px;}
+    .oc-frow{display:flex;align-items:center;gap:10px;margin-bottom:5px;}
+    .oc-fname{font-size:11px;color:#6B5030;width:76px;flex-shrink:0;}
+    .oc-ftrack{flex:1;height:3px;background:#E8DCC8;border-radius:2px;}
+    .oc-ffill{height:3px;background:var(--gold);border-radius:2px;transition:width .4s ease;}
+    .oc-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;height:110px;border-top:2px solid var(--gold);}
+    .oc-strip img{width:100%;height:100%;object-fit:cover;display:block;opacity:.75;}
+
+    @media(max-width:700px){
+      .oc-detail__split{grid-template-columns:1fr;}
+      .oc-detail__photo{min-height:180px;}
+      .oc-specs{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="Moplaco — home">
+      <svg class="nav-logo-badge" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="50" cy="50" r="48" fill="none" stroke="#D4A847" stroke-width="1.5"/><circle cx="50" cy="50" r="42" fill="none" stroke="#D4A847" stroke-width="0.4"/><polygon points="50,6 41,47 59,47" fill="#D4A847"/><polygon points="50,6 41,47 59,47" fill="#D4A847" transform="rotate(120,50,50)"/><polygon points="50,6 41,47 59,47" fill="#D4A847" transform="rotate(240,50,50)"/><circle cx="50" cy="50" r="8" fill="#1C1008" stroke="#D4A847" stroke-width="0.8"/><circle cx="50" cy="50" r="2.5" fill="#D4A847"/><text x="50" y="21" text-anchor="middle" font-family="Outfit,sans-serif" font-size="9" font-weight="600" fill="#1C1008">M</text><text x="73" y="67" text-anchor="middle" font-family="Outfit,sans-serif" font-size="9" font-weight="600" fill="#1C1008">P</text><text x="27" y="67" text-anchor="middle" font-family="Outfit,sans-serif" font-size="9" font-weight="600" fill="#1C1008">C</text></svg>
+      <span class="nav-logo-text">MOPL<span class="accent">A</span>CO</span>
+    </a>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="coffees.html" style="color:var(--gold);">Our Coffees</a>
+      <a href="farm.html">Farm & Processing</a>
+      <a href="index.html#sustainability">Sustainability</a>
+      <a href="https://www.galanicoffee.com/" target="_blank" rel="noopener" class="nav-galani">Galani Coffee ↗</a>
+      <a href="index.html#contact" class="nav-cta">Request Samples</a>
+    </div>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="oc-hero" aria-label="Our Coffees hero">
+    <img class="oc-hero__img" src="https://moplaco.com/assets/img/banner/yergachefe.jpg" alt="Ethiopian coffee country"/>
+    <div class="oc-hero__overlay" aria-hidden="true"></div>
+    <div class="oc-hero__content">
+      <span class="eyebrow">Our coffees &amp; origins</span>
+      <h1 class="oc-hero__headline">Seven origins.<br>One <em>birthplace.</em></h1>
+      <p class="oc-hero__sub">Ethiopia holds more Arabica diversity than any country on earth. Each region Moplaco sources from carries a distinct fingerprint — shaped by altitude, terroir, heirloom variety, and processing tradition. Click any origin to explore its full profile.</p>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="oc-filter" role="toolbar" aria-label="Filter origins by process">
+    <span class="oc-filter__label">Filter by process</span>
+    <button class="oc-filter__btn active" onclick="filterO('all',this)">All origins</button>
+    <button class="oc-filter__btn" onclick="filterO('washed',this)">Washed</button>
+    <button class="oc-filter__btn" onclick="filterO('natural',this)">Natural</button>
+    <button class="oc-filter__btn" onclick="filterO('honey',this)">Honey</button>
+    <button class="oc-filter__btn" onclick="filterO('own',this)">Moplaco farm</button>
+  </div>
+
+  <!-- ORIGINS GRID -->
+  <div class="oc-grid-wrap">
+    <div class="oc-grid" id="og" role="list"></div>
+  </div>
+
+  <!-- EXPANDED DETAIL PANEL -->
+  <div class="oc-detail" id="od" role="region" aria-label="Origin detail">
+    <div class="oc-detail__split">
+      <div class="oc-detail__photo">
+        <img id="d-img" src="" alt=""/>
+        <div class="oc-detail__photo-cap">
+          <div class="oc-detail__photo-region" id="d-reg"></div>
+          <div class="oc-detail__photo-name" id="d-name"></div>
+        </div>
+      </div>
+      <div class="oc-detail__right">
+        <p class="oc-detail__desc" id="d-desc"></p>
+        <div class="oc-specs" id="d-specs"></div>
+        <div>
+          <div class="oc-flavors__label">Flavour profile</div>
+          <div id="d-flavors"></div>
+        </div>
+      </div>
+    </div>
+    <div class="oc-strip" id="d-strip" aria-hidden="true"></div>
+  </div>
+
+  <!-- CTA BAND -->
+  <div style="background:var(--espresso-mid);padding:28px var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:24px;border-top:1px solid var(--border-dark);">
+    <p style="font-family:var(--font-display);font-style:italic;font-size:16px;color:var(--text-on-dark);max-width:500px;line-height:1.5;">
+      Interested in a specific origin? Request samples and our team in Addis Ababa will respond within 48 hours.
+    </p>
+    <a href="index.html#contact" class="btn btn--gold">Request Samples →</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo-text">MOPLACO TRADING PLC</div>
+          <div class="footer-tagline">Ethiopian Green Coffee Exporter since 1971</div>
+        </div>
+        <nav class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="coffees.html">Our Coffees</a>
+          <a href="farm.html">Farm &amp; Processing</a>
+          <a href="index.html#sustainability">Sustainability</a>
+          <a href="galani.html" class="footer-galani">Galani Coffee</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Moplaco Trading PLC · Addis Ababa, Ethiopia</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/nav.js" defer></script>
+  <script>
+  var OD=[
+    {id:'yirgacheffe',name:'Yirgacheffe',region:'Southern Ethiopia · 1,700–2,200 masl',
+     img:'https://moplaco.com/assets/img/banner/yergachefe.jpg',
+     strip:['https://moplaco.com/assets/img/banner/yergachefe.jpg','https://moplaco.com/assets/img/banner/coffee_p1.jpg','https://moplaco.com/assets/img/banner/sidamo.jpg'],
+     process:['washed','natural'],tags:['Washed','Natural'],hi:true,
+     desc:'World-renowned for floral complexity and citrus brightness. Yirgacheffe produces some of the most distinctive cups Ethiopia has to offer — jasmine aromatics, lemon acidity, and a tea-like body. Moplaco operates three stations here: Yirgacheffe Town, Chelelectu, and Chelbesa in Gedeb.',
+     specs:[{l:'Altitude',v:'1,700–2,200 masl'},{l:'Process',v:'Washed, Natural'},{l:'Moplaco stations',v:'Town, Chelelectu, Chelbesa'},{l:'Certifications',v:'Organic available'}],
+     flavors:[{n:'Floral',v:95},{n:'Citrus',v:88},{n:'Stone fruit',v:62},{n:'Sweetness',v:75},{n:'Body',v:50}]},
+    {id:'sidamo',name:'Sidamo',region:'Southern Ethiopia · 1,500–2,200 masl',
+     img:'https://moplaco.com/assets/img/banner/sidamo.jpg',
+     strip:['https://moplaco.com/assets/img/banner/sidamo.jpg','https://moplaco.com/assets/img/banner/banner12.jpg','https://moplaco.com/assets/img/blog/sidamo.jpg'],
+     process:['washed','natural'],tags:['Washed','Natural'],hi:true,
+     desc:'Ethiopia\'s largest supplier of washed coffee. Sidamo offers remarkable balance — wine-like acidity, fruit complexity, and a smooth full body. Moplaco\'s Sidamo Logita washing station, acquired in 2017, produces boutique lots directly from surrounding smallholders.',
+     specs:[{l:'Altitude',v:'1,500–2,200 masl'},{l:'Process',v:'Washed, Natural'},{l:'Moplaco station',v:'Sidamo Logita (est. 2017)'},{l:'Certifications',v:'Organic, Fair Trade'}],
+     flavors:[{n:'Fruit',v:85},{n:'Wine',v:72},{n:'Acidity',v:80},{n:'Sweetness',v:78},{n:'Body',v:72}]},
+    {id:'guji',name:'Guji',region:'Oromia · 1,500–2,100 masl',
+     img:'https://moplaco.com/assets/img/banner/coffee_p1.jpg',
+     strip:['https://moplaco.com/assets/img/banner/coffee_p1.jpg','https://moplaco.com/assets/img/banner/coffee_r1.jpg','https://moplaco.com/assets/img/banner/yergachefe.jpg'],
+     process:['washed','natural'],tags:['Washed','Natural'],hi:true,
+     desc:'Ethiopia\'s rising star. Guji produces extraordinary lots with peach, jasmine, and berry complexity — silky mouthfeel and vibrant acidity. One of the highest-scoring origins on the SCA scale, increasingly sought by specialty roasters worldwide.',
+     specs:[{l:'Altitude',v:'1,500–2,100 masl'},{l:'Process',v:'Washed, Natural'},{l:'SCA score',v:'85–92 typical'},{l:'Certifications',v:'Organic available'}],
+     flavors:[{n:'Floral',v:82},{n:'Stone fruit',v:90},{n:'Berry',v:86},{n:'Sweetness',v:88},{n:'Body',v:65}]},
+    {id:'sheka',name:'Sheka',region:'Kaffa Zone · Moplaco own farm',
+     img:'https://moplaco.com/assets/img/banner/crops.jpg',
+     strip:['https://moplaco.com/assets/img/banner/crops.jpg','https://moplaco.com/assets/img/banner/coffee_r1.jpg','https://moplaco.com/assets/img/blog/sheka.jpg'],
+     process:['washed','natural','honey','own'],tags:['Own farm'],farm:true,
+     desc:'Moplaco\'s own forest farm — a sanctuary of birds, trees, and biodiversity in the Kaffa zone. Single-origin lots grown organically under forest canopy, fully traceable to our land. Washed processing now available following installation of our on-site station. Limited seasonal availability.',
+     specs:[{l:'Ownership',v:'Moplaco Trading PLC'},{l:'Process',v:'Natural, Washed (new)'},{l:'Ecosystem',v:'Forest shade-grown, organic'},{l:'Availability',v:'Limited — seasonal'}],
+     flavors:[{n:'Chocolate',v:80},{n:'Earthy',v:74},{n:'Spice',v:65},{n:'Sweetness',v:70},{n:'Body',v:82}]},
+    {id:'harrar',name:'Harrar',region:'Eastern Ethiopia · 1,400–2,000 masl',
+     img:'https://moplaco.com/assets/img/bg/addisababa.jpg',
+     strip:['https://moplaco.com/assets/img/bg/addisababa.jpg','https://moplaco.com/assets/img/banner/coffee_p1.jpg','https://moplaco.com/assets/img/banner/crops.jpg'],
+     process:['natural'],tags:['Natural'],
+     desc:'Moplaco\'s founding origin and star brand — the reason this company exists since 1971. Bold berry, winey acidity, and a distinctive spice-mocha finish that no other origin replicates. Exported via our original Dire Dawa facility.',
+     specs:[{l:'Altitude',v:'1,400–2,000 masl'},{l:'Process',v:'Natural (dry-processed)'},{l:'Moplaco facility',v:'Dire Dawa (est. 1971)'},{l:'Heritage',v:'Moplaco founding origin'}],
+     flavors:[{n:'Berry',v:92},{n:'Wine',v:88},{n:'Spice',v:72},{n:'Mocha',v:78},{n:'Body',v:85}]},
+    {id:'limu',name:'Limu',region:'Western Ethiopia · 1,400–2,000 masl',
+     img:'https://moplaco.com/assets/img/banner/coffee_r1.jpg',
+     strip:['https://moplaco.com/assets/img/banner/coffee_r1.jpg','https://moplaco.com/assets/img/banner/sidamo.jpg','https://moplaco.com/assets/img/banner/coffee_p1.jpg'],
+     process:['washed'],tags:['Washed'],
+     desc:'Well-balanced and versatile — Limu is the blend specialist\'s ideal. Well-rounded acidity, subtle wine and spice notes, and a clean lingering finish. Excellent for commercial roasters seeking consistency without sacrificing character.',
+     specs:[{l:'Altitude',v:'1,400–2,000 masl'},{l:'Process',v:'Washed'},{l:'Cup profile',v:'Wine, Spice, Clean'},{l:'Best for',v:'Blends, commercial'}],
+     flavors:[{n:'Wine',v:65},{n:'Acidity',v:68},{n:'Sweetness',v:72},{n:'Spice',v:60},{n:'Body',v:75}]},
+    {id:'jimma',name:'Jimma',region:'Southwest Ethiopia · 1,400–1,800 masl',
+     img:'https://moplaco.com/assets/img/banner/coffee_p1.jpg',
+     strip:['https://moplaco.com/assets/img/banner/coffee_p1.jpg','https://moplaco.com/assets/img/banner/crops.jpg','https://moplaco.com/assets/img/banner/yergachefe.jpg'],
+     process:['washed','natural'],tags:['Washed','Natural'],
+     desc:'Ethiopia\'s primary commercial-grade region. Full-bodied, earthy, and consistent — Jimma coffees are ideal for blends and large-volume buyers. Chocolatey notes with hints of fruit and a smooth, predictable finish.',
+     specs:[{l:'Altitude',v:'1,400–1,800 masl'},{l:'Process',v:'Washed, Natural'},{l:'Best for',v:'Blends, commercial'},{l:'Volume',v:'High availability'}],
+     flavors:[{n:'Chocolate',v:78},{n:'Earthy',v:80},{n:'Fruit',v:55},{n:'Body',v:85},{n:'Sweetness',v:62}]}
+  ];
+
+  var selId=null,activeF='all';
+
+  function renderGrid(){
+    var g=document.getElementById('og');g.innerHTML='';
+    var list=activeF==='all'?OD:OD.filter(function(o){return o.process.indexOf(activeF)>-1;});
+    list.forEach(function(o){
+      var b=document.createElement('button');
+      b.className='oc-card'+(selId===o.id?' sel':'');
+      b.setAttribute('role','listitem');
+      b.setAttribute('aria-label','View '+o.name+' origin profile');
+      var bHtml=o.tags.map(function(t){
+        return '<span class="oc-card__badge'+(o.farm?' oc-card__badge--farm':o.hi?' oc-card__badge--gold':'')+'">'+t+'</span>';
+      }).join('');
+      b.innerHTML='<img class="oc-card__img" src="'+o.img+'" alt="'+o.name+' coffee" loading="lazy">'
+        +'<div class="oc-card__overlay" aria-hidden="true"></div>'
+        +'<div class="oc-card__badges">'+bHtml+'</div>'
+        +'<div class="oc-card__body">'
+          +'<div class="oc-card__name">'+o.name+'</div>'
+          +'<div class="oc-card__region">'+o.region.split('·')[0].trim()+'</div>'
+        +'</div>';
+      b.onclick=function(){selO(o.id);};
+      g.appendChild(b);
+    });
+  }
+
+  function selO(id){
+    if(selId===id){selId=null;document.getElementById('od').classList.remove('open');renderGrid();return;}
+    selId=id;
+    var o=OD.find(function(x){return x.id===id;});
+    document.getElementById('d-img').src=o.img;
+    document.getElementById('d-img').alt=o.name;
+    document.getElementById('d-name').textContent=o.name;
+    document.getElementById('d-reg').textContent=o.region;
+    document.getElementById('d-desc').textContent=o.desc;
+    document.getElementById('d-specs').innerHTML=o.specs.map(function(s){
+      return '<div class="oc-spec"><div class="oc-spec__label">'+s.l+'</div><div class="oc-spec__value">'+s.v+'</div></div>';
+    }).join('');
+    document.getElementById('d-flavors').innerHTML=o.flavors.map(function(f){
+      return '<div class="oc-frow"><span class="oc-fname">'+f.n+'</span><div class="oc-ftrack"><div class="oc-ffill" style="width:'+f.v+'%"></div></div></div>';
+    }).join('');
+    document.getElementById('d-strip').innerHTML=o.strip.map(function(src,i){
+      return '<img src="'+src+'" alt="'+o.name+' '+(i+1)+'" loading="lazy">';
+    }).join('');
+    document.getElementById('od').classList.add('open');
+    renderGrid();
+    document.getElementById('od').scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+
+  function filterO(f,btn){
+    activeF=f;selId=null;
+    document.getElementById('od').classList.remove('open');
+    document.querySelectorAll('.oc-filter__btn').forEach(function(b){b.classList.remove('active');});
+    btn.classList.add('active');
+    renderGrid();
+  }
+
+  renderGrid();
+  </script>
+</body>
+</html>

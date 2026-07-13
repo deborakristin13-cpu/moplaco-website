@@ -1,0 +1,187 @@
+/* =============================================================
+   GALANI COFFEE — Page-specific styles
+   Styles unique to the Galani brand tab/page
+   Intentionally warmer, more intimate than Moplaco's B2B tone
+   ============================================================= */
+
+/* ── GALANI HERO ─────────────────────────────────────────────── */
+
+.gal-hero {
+  position: relative;
+  height: 460px;
+  overflow: hidden;
+  background: #1A0E04;
+}
+
+.gal-hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+  display: block;
+}
+
+.gal-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(26, 14, 4, 0.96) 38%,
+    rgba(26, 14, 4, 0.18)
+  );
+}
+
+.gal-hero__content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 var(--gutter);
+  max-width: 580px;
+}
+
+.gal-hero__headline {
+  font-family: var(--font-display);
+  font-size: var(--text-xxl);
+  font-weight: 700;
+  color: #FAF0DC;
+  line-height: 1.08;
+  margin-bottom: var(--space-2);
+}
+
+.gal-hero__headline em {
+  font-style: italic;
+  color: var(--gold-galani);
+}
+
+.gal-hero__sub {
+  font-size: var(--text-sm);
+  color: #6A5030;
+  line-height: 1.7;
+  max-width: 400px;
+  margin-bottom: var(--space-4);
+}
+
+/* ── GALANI STATS ────────────────────────────────────────────── */
+
+.gal-stats-bar {
+  display: flex;
+  background: #241508;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.gal-stat-item {
+  flex: 1;
+  padding: 20px 0;
+  text-align: center;
+  border-right: 1px solid var(--border-dark);
+}
+
+.gal-stat-item:last-child { border-right: none; }
+
+.gal-stat-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--gold-galani);
+  line-height: 1;
+}
+
+.gal-stat-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #5A4028;
+  margin-top: 4px;
+}
+
+/* ── GALANI ABOUT ────────────────────────────────────────────── */
+
+.gal-about {
+  padding: var(--section-pad);
+}
+
+/* ── GALANI CAFES ────────────────────────────────────────────── */
+
+.gal-cafes {
+  padding: var(--section-pad);
+  background: #FDF8F0;
+}
+
+.cafe-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+/* ── GALANI LEARNING ─────────────────────────────────────────── */
+
+.gal-learning {
+  padding: var(--section-pad);
+  background: #1A0E04;
+}
+
+.gal-learning .eyebrow { color: #6A5030; }
+
+.learn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+/* ── GALANI PHOTO STRIP ──────────────────────────────────────── */
+
+.gal-photo-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3px;
+  height: 200px;
+}
+
+.gal-photo-strip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── GALANI ORDER ONLINE BOX ─────────────────────────────────── */
+
+.gal-order-box {
+  background: var(--parchment-warm);
+  border: 0.5px solid var(--parchment-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.gal-order-box i { font-size: 22px; color: var(--gold-galani); }
+.gal-order-box__label { font-size: 12px; color: var(--text-light-secondary); }
+.gal-order-box__link  { font-size: 11px; color: var(--gold-galani); font-weight: 600; }
+
+/* ── RESPONSIVE ──────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .gal-hero { height: 380px; }
+  .cafe-grid { grid-template-columns: repeat(2, 1fr); }
+  .learn-grid { grid-template-columns: 1fr; }
+  .gal-photo-strip { grid-template-columns: repeat(2, 1fr); height: 180px; }
+}
+
+@media (max-width: 600px) {
+  .gal-hero { height: 340px; }
+  .cafe-grid { grid-template-columns: 1fr; }
+  .gal-stats-bar { flex-wrap: wrap; }
+  .gal-stat-item { flex: 1 1 50%; border-right: none; border-bottom: 1px solid var(--border-dark); }
+}

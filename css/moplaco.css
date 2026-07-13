@@ -1,0 +1,205 @@
+/* =============================================================
+   MOPLACO TRADING PLC — Page-specific styles
+   Styles unique to the Moplaco homepage sections
+   ============================================================= */
+
+/* ── HERO ────────────────────────────────────────────────────── */
+
+.hero {
+  position: relative;
+  height: 480px;
+  overflow: hidden;
+  background: var(--espresso);
+}
+
+.hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.38;
+  display: block;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(28, 16, 8, 0.97) 38%,
+    rgba(28, 16, 8, 0.15)
+  );
+}
+
+.hero__content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 var(--gutter);
+  max-width: 620px;
+}
+
+.hero__headline {
+  font-family: var(--font-display);
+  font-size: var(--text-xxl);
+  font-weight: 700;
+  color: var(--text-on-dark);
+  line-height: 1.08;
+  margin-bottom: var(--space-2);
+}
+
+.hero__headline em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero__sub {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 420px;
+  margin-bottom: var(--space-4);
+}
+
+.hero__btns {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Year watermark */
+.hero__year {
+  position: absolute;
+  right: var(--gutter);
+  bottom: 32px;
+  text-align: right;
+  pointer-events: none;
+}
+
+.hero__year-num {
+  font-family: var(--font-display);
+  font-size: 88px;
+  font-weight: 700;
+  color: var(--gold-faint);
+  line-height: 1;
+  letter-spacing: -3px;
+}
+
+.hero__year-label {
+  font-size: 10px;
+  color: var(--text-faint);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ── OUR STORY / ABOUT ───────────────────────────────────────── */
+
+.story-section {
+  padding: var(--section-pad);
+}
+
+.story-timeline {
+  border-left: 1px solid var(--parchment-border);
+  padding-left: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: var(--space-3);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--space-3) - 4px);
+  top: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.timeline-item__year {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  margin-bottom: 3px;
+}
+
+.timeline-item__text {
+  font-size: 13px;
+  color: var(--text-light-secondary);
+  line-height: 1.6;
+}
+
+/* ── SUPPLY CHAIN SECTION ────────────────────────────────────── */
+
+.supply-chain-section {
+  padding: var(--section-pad);
+  background: var(--parchment-warm);
+}
+
+/* ── SUSTAINABILITY ──────────────────────────────────────────── */
+
+.sustain-section {
+  padding: var(--section-pad);
+}
+
+.sustain-impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.impact-item {
+  text-align: center;
+  padding: var(--space-2);
+}
+
+.impact-item__num {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--gold);
+  display: block;
+}
+
+.impact-item__label {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+/* ── JOURNAL / UPDATES ───────────────────────────────────────── */
+
+.journal-section {
+  padding: var(--section-pad);
+  background: var(--parchment-warm);
+}
+
+.journal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .hero { height: 400px; }
+  .hero__year-num { font-size: 60px; }
+  .sustain-impact-grid { grid-template-columns: 1fr 1fr; }
+  .journal-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .hero { height: 360px; }
+  .hero__year { display: none; }
+  .sustain-impact-grid { grid-template-columns: 1fr; }
+}

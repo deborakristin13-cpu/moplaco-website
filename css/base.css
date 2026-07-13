@@ -1,0 +1,235 @@
+/* =============================================================
+   MOPLACO TRADING PLC — Base Styles
+   Reset, global typography, shared layout utilities
+   ============================================================= */
+
+/* ── RESET ──────────────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: var(--text-light-primary);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+  border: none;
+  background: none;
+}
+
+ul, ol { list-style: none; }
+
+/* ── TYPOGRAPHY ─────────────────────────────────────────────── */
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+h1 { font-size: var(--text-xxl); }
+h2 { font-size: var(--text-lg); }
+h3 { font-size: var(--text-md); font-family: var(--font-body); }
+
+p { margin-bottom: var(--space-2); }
+p:last-child { margin-bottom: 0; }
+
+/* ── LAYOUT UTILITIES ───────────────────────────────────────── */
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.section {
+  padding: var(--section-pad);
+}
+
+.section--dark {
+  background: var(--espresso);
+  padding: var(--section-pad);
+}
+
+.section--mid {
+  background: var(--espresso-mid);
+  padding: var(--section-pad);
+}
+
+.section--parchment {
+  background: var(--parchment);
+  padding: var(--section-pad);
+}
+
+.section--warm {
+  background: var(--parchment-warm);
+  padding: var(--section-pad);
+}
+
+.two-col {
+  display: flex;
+  gap: var(--space-5);
+  align-items: flex-start;
+}
+
+.two-col > * { flex: 1; }
+
+.two-col--60-40 > *:first-child { flex: 1.5; }
+.two-col--40-60 > *:last-child  { flex: 1.5; }
+
+/* ── EYEBROW LABEL ──────────────────────────────────────────── */
+
+.eyebrow {
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: var(--space-1);
+}
+
+.eyebrow--muted  { color: #9A6030; }
+.eyebrow--galani { color: var(--gold-galani); }
+.eyebrow--dark   { color: #6A5030; }
+
+/* ── SECTION HEADINGS ───────────────────────────────────────── */
+
+.section-heading {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--space-2);
+  color: var(--text-light-primary);
+}
+
+.section-heading--light {
+  color: var(--text-on-dark);
+}
+
+.section-heading em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.section-body {
+  font-size: var(--text-sm);
+  line-height: 1.75;
+  color: var(--text-light-secondary);
+  margin-bottom: var(--space-2);
+  max-width: 560px;
+}
+
+.section-body--light {
+  color: var(--text-muted);
+}
+
+/* ── DIVIDER ────────────────────────────────────────────────── */
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--parchment-border);
+  margin: var(--space-4) 0;
+}
+
+.divider--dark {
+  border-color: var(--border-dark);
+}
+
+/* ── SCROLL REVEAL (JS adds .revealed) ─────────────────────── */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── SCREEN READER ONLY ─────────────────────────────────────── */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── REDUCED MOTION ─────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* ── RESPONSIVE BREAKPOINTS ─────────────────────────────────── */
+
+/* Tablet */
+@media (max-width: 900px) {
+  :root {
+    --text-xxl: 38px;
+    --text-xl:  28px;
+    --text-lg:  24px;
+    --gutter:   24px;
+    --section-pad: var(--space-5) var(--space-3);
+  }
+
+  .two-col {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .two-col--60-40 > *:first-child,
+  .two-col--40-60 > *:last-child {
+    flex: 1;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  :root {
+    --text-xxl: 32px;
+    --text-lg:  22px;
+    --gutter:   20px;
+  }
+}

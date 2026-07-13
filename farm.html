@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Moplaco Trading PLC — Farm & Processing. Sheka forest farm, four washing stations, export facilities in Addis and Dire Dawa." />
+  <title>Farm &amp; Processing — Moplaco Trading PLC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,400&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/moplaco.css" />
+  <style>
+    /* ── Tab bar ── */
+    .fp-tabs{display:flex;background:var(--espresso-mid);border-bottom:1px solid var(--border-dark);}
+    .fp-tab{flex:1;padding:13px 8px;font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-faint);cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;font-family:var(--font-body);transition:all .15s;}
+    .fp-tab.active{color:var(--gold);border-bottom-color:var(--gold);}
+    .fp-tab:hover{color:var(--text-on-dark);}
+    .fp-panel{display:none;}
+    .fp-panel.active{display:block;}
+
+    /* ── SHEKA ── */
+    .sh-cinematic{position:relative;height:300px;overflow:hidden;}
+    .sh-cinematic img{width:100%;height:100%;object-fit:cover;display:block;opacity:.52;}
+    .sh-cinematic__ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(28,16,8,.92) 0%,rgba(28,16,8,.2) 55%);}
+    .sh-cinematic__c{position:absolute;bottom:0;left:0;right:0;padding:24px var(--gutter);}
+    .sh-own-tag{display:inline-block;background:rgba(212,168,71,.15);border:.5px solid var(--gold);color:var(--gold);font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:var(--radius-sm);margin-bottom:8px;}
+    .sh-farm-name{font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--text-on-dark);}
+    .sh-farm-sub{font-size:11px;color:var(--gold-galani);margin-top:4px;}
+
+    .sh-body{display:grid;grid-template-columns:1fr 1fr;background:var(--parchment-warm);min-height:380px;}
+    .sh-text{padding:32px var(--gutter);}
+    .sh-desc{font-size:13px;color:#6B5030;line-height:1.8;margin-bottom:20px;}
+    .sh-pillars{display:flex;flex-direction:column;gap:14px;}
+    .sh-pillar{display:flex;gap:14px;align-items:flex-start;}
+    .sh-pillar__icon{width:38px;height:38px;border-radius:50%;background:var(--espresso);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+    .sh-pillar__icon i{font-size:17px;color:var(--gold);}
+    .sh-pillar__title{font-size:12px;font-weight:600;color:var(--espresso);margin-bottom:3px;}
+    .sh-pillar__text{font-size:11px;color:var(--text-light-secondary);line-height:1.6;}
+    .sh-photos{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:190px 190px;gap:3px;}
+    .sh-photos img{width:100%;height:100%;object-fit:cover;display:block;}
+    .sh-photos img:first-child{grid-row:span 2;}
+    .sh-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;height:120px;background:var(--espresso);}
+    .sh-strip img{width:100%;height:100%;object-fit:cover;display:block;opacity:.65;}
+
+    /* ── STATIONS ── */
+    .st-intro{padding:22px var(--gutter) 0;background:var(--espresso);}
+    .st-intro p{font-size:12px;color:var(--text-muted);line-height:1.7;max-width:600px;}
+    .st-list{background:var(--espresso);padding:16px var(--gutter) 32px;display:flex;flex-direction:column;gap:3px;}
+    .st-row{display:grid;grid-template-columns:240px 1fr;border-radius:var(--radius-sm);overflow:hidden;cursor:pointer;border:1px solid var(--border-dark);transition:border-color .15s;}
+    .st-row:hover{border-color:#4A3420;}
+    .st-row.open{border-color:var(--gold);}
+    .st-row__photo{position:relative;min-height:148px;}
+    .st-row__photo img{width:100%;height:100%;object-fit:cover;display:block;opacity:.62;transition:opacity .2s;}
+    .st-row:hover .st-row__photo img,.st-row.open .st-row__photo img{opacity:.85;}
+    .st-row__photo-cap{position:absolute;bottom:0;left:0;right:0;background:rgba(28,16,8,.75);padding:10px 14px;}
+    .st-row__photo-type{font-size:9px;color:var(--gold-galani);letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px;}
+    .st-row__photo-name{font-family:var(--font-display);font-size:15px;font-weight:700;color:var(--text-on-dark);}
+    .st-row__body{background:var(--espresso-light);padding:18px 22px;display:flex;flex-direction:column;justify-content:space-between;}
+    .st-row__tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px;}
+    .st-tag{font-size:9px;padding:2px 8px;border-radius:var(--radius-sm);background:var(--espresso);color:#9A8060;}
+    .st-tag--gold{background:var(--gold);color:var(--espresso);font-weight:600;}
+    .st-row__summary{font-size:12px;color:#9A8060;line-height:1.6;}
+    .st-row__detail{display:none;background:var(--espresso-mid);border-top:1px solid var(--border-dark);padding:16px 22px;}
+    .st-row.open .st-row__detail{display:block;}
+    .st-row__spec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px;}
+    .st-spec{background:var(--espresso);border-radius:var(--radius-sm);padding:10px 12px;}
+    .st-spec__label{font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);margin-bottom:3px;}
+    .st-spec__value{font-size:11px;color:var(--text-on-dark);}
+
+    /* ── EXPORT ── */
+    .ex-body{padding:32px var(--gutter);background:var(--parchment-warm);}
+    .ex-intro{font-size:13px;color:#6B5030;line-height:1.75;max-width:580px;margin-bottom:22px;}
+    .ex-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:12px;}
+    .ex-card{background:#fff;border:.5px solid var(--parchment-border);border-radius:var(--radius-sm);overflow:hidden;}
+    .ex-card__photo{position:relative;height:170px;overflow:hidden;}
+    .ex-card__photo img{width:100%;height:100%;object-fit:cover;display:block;opacity:.72;}
+    .ex-card__photo-ov{position:absolute;inset:0;background:rgba(28,16,8,.38);}
+    .ex-card__photo-label{position:absolute;bottom:0;left:0;right:0;padding:14px 18px;}
+    .ex-card__year{font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:3px;}
+    .ex-card__name{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--text-on-dark);}
+    .ex-card__body{padding:16px 18px;}
+    .ex-card__desc{font-size:12px;color:var(--text-light-secondary);line-height:1.65;}
+    .ex-note{background:#FAF0E8;border:.5px solid var(--parchment-border);border-radius:var(--radius-sm);padding:14px 18px;display:flex;gap:10px;align-items:flex-start;}
+    .ex-note i{font-size:18px;color:var(--gold);flex-shrink:0;margin-top:1px;}
+    .ex-note p{font-size:12px;color:var(--text-light-secondary);line-height:1.65;margin:0;}
+
+    /* ── FLOW ── */
+    .fl-body{background:var(--espresso);padding:32px var(--gutter);}
+    .fl-title{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--text-on-dark);margin-bottom:28px;}
+    .fl-steps{display:flex;position:relative;}
+    .fl-steps::before{content:'';position:absolute;top:18px;left:18px;right:18px;border-top:1px dashed #3A2A18;}
+    .fl-step{flex:1;text-align:center;position:relative;z-index:1;}
+    .fl-dot{width:36px;height:36px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;}
+    .fl-dot i{font-size:16px;color:var(--espresso);}
+    .fl-lbl{font-size:11px;font-weight:600;color:var(--text-on-dark);margin-bottom:3px;}
+    .fl-sub{font-size:10px;color:var(--text-muted);line-height:1.45;padding:0 4px;}
+    .fl-photo-row{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;height:130px;margin-top:28px;}
+    .fl-photo-row img{width:100%;height:100%;object-fit:cover;display:block;opacity:.58;}
+    .fl-specs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px;}
+    .fl-spec{background:var(--espresso-light);border-radius:var(--radius-sm);padding:12px 14px;}
+    .fl-spec__label{font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);margin-bottom:4px;}
+    .fl-spec__value{font-size:11px;color:var(--text-on-dark);line-height:1.5;}
+
+    @media(max-width:800px){
+      .sh-body{grid-template-columns:1fr;}
+      .ex-grid{grid-template-columns:1fr;}
+      .st-row{grid-template-columns:1fr;}
+      .st-row__spec-grid{grid-template-columns:1fr 1fr;}
+      .fl-steps{flex-wrap:wrap;gap:16px;}
+      .fl-steps::before{display:none;}
+      .fl-step{flex:1 1 calc(33% - 8px);}
+      .fl-photo-row{grid-template-columns:1fr 1fr;height:180px;}
+      .fl-specs{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="Moplaco — home">
+      <svg class="nav-logo-badge" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="50" cy="50" r="48" fill="none" stroke="#D4A847" stroke-width="1.5"/><circle cx="50" cy="50" r="42" fill="none" stroke="#D4A847" stroke-width="0.4"/><polygon points="50,6 41,47 59,47" fill="#D4A847"/><polygon points="50,6 41,47 59,47" fill="#D4A847" transform="rotate(120,50,50)"/><polygon points="50,6 41,47 59,47" fill="#D4A847" transform="rotate(240,50,50)"/><circle cx="50" cy="50" r="8" fill="#1C1008" stroke="#D4A847" stroke-width="0.8"/><circle cx="50" cy="50" r="2.5" fill="#D4A847"/><text x="50" y="21" text-anchor="middle" font-family="Outfit,sans-serif" font-size="9" font-weight="600" fill="#1C1008">M</text><text x="73" y="67" text-anchor="middle" font-family="Outfit,sans-serif" font-size="9" font-weight="600" fill="#1C1008">P</text><text x="27" y="67" text-anchor="middle" font-family="Outfit,sans-serif" font-size="9" font-weight="600" fill="#1C1008">C</text></svg>
+      <span class="nav-logo-text">MOPL<span class="accent">A</span>CO</span>
+    </a>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="coffees.html">Our Coffees</a>
+      <a href="farm.html" style="color:var(--gold);">Farm &amp; Processing</a>
+      <a href="index.html#sustainability">Sustainability</a>
+      <a href="https://www.galanicoffee.com/" target="_blank" rel="noopener" class="nav-galani">Galani Coffee ↗</a>
+      <a href="index.html#contact" class="nav-cta">Request Samples</a>
+    </div>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section style="position:relative;height:260px;overflow:hidden;background:var(--espresso);" aria-label="Farm and Processing hero">
+    <img src="https://moplaco.com/assets/img/banner/crops.jpg" alt="Sheka forest farm" style="width:100%;height:100%;object-fit:cover;display:block;opacity:.38;"/>
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(28,16,8,.97) 38%,rgba(28,16,8,.2));" aria-hidden="true"></div>
+    <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 var(--gutter);">
+      <span class="eyebrow">Farm &amp; processing</span>
+      <h1 style="font-family:var(--font-display);font-size:var(--text-xxl);font-weight:700;color:var(--text-on-dark);line-height:1.1;margin-bottom:10px;">From seed to <em style="font-style:italic;color:var(--gold);">shipment.</em></h1>
+      <p style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.7;max-width:520px;">Moplaco controls the entire chain — our own farm at Sheka, four washing stations in Sidamo and Yirgacheffe, an in-house quality lab, and export facilities in Addis Ababa and Dire Dawa.</p>
+    </div>
+  </section>
+
+  <!-- TABS -->
+  <div class="fp-tabs" role="tablist" aria-label="Farm and processing sections">
+    <button class="fp-tab active" onclick="swTab('sheka',this)" role="tab" aria-selected="true">Sheka farm</button>
+    <button class="fp-tab" onclick="swTab('stations',this)" role="tab" aria-selected="false">Washing stations</button>
+    <button class="fp-tab" onclick="swTab('export',this)" role="tab" aria-selected="false">Export facilities</button>
+    <button class="fp-tab" onclick="swTab('flow',this)" role="tab" aria-selected="false">Processing flow</button>
+  </div>
+
+  <!-- SHEKA PANEL -->
+  <div class="fp-panel active" id="panel-sheka" role="tabpanel">
+    <div class="sh-cinematic">
+      <img src="https://moplaco.com/assets/img/banner/coffee_r1.jpg" alt="Sheka forest farm retreat"/>
+      <div class="sh-cinematic__ov" aria-hidden="true"></div>
+      <div class="sh-cinematic__c">
+        <span class="sh-own-tag">Moplaco own farm · Kaffa Zone, Southwest Ethiopia</span>
+        <div class="sh-farm-name">Sheka Forest Farm</div>
+        <div class="sh-farm-sub">A sanctuary of birds, animals, and trees — and Ethiopia's most extraordinary terroir</div>
+      </div>
+    </div>
+    <div class="sh-body">
+      <div class="sh-text">
+        <p class="sh-desc">Sheka came into our life unexpectedly and after a long search. A sanctuary of birds, animals, and trees, this forest is ideal for coffee — and eco-tourism. We grow, process, and prepare our own coffee here alongside neighbouring farmers, using fully ecological practices: biogas cooking, composting, zero plastic, and fierce protection of the forest canopy. We also harvest honey, our bees pollinating and rejuvenating the forest around us.</p>
+        <div class="sh-pillars">
+          <div class="sh-pillar">
+            <div class="sh-pillar__icon"><i class="ti ti-trees" aria-hidden="true"></i></div>
+            <div>
+              <div class="sh-pillar__title">Preservation</div>
+              <div class="sh-pillar__text">When deforestation ravages Ethiopia, our aim is to preserve every hectare of forest gifted to us — demonstrating that the forest is our greatest asset. Biogas, composting, zero plastic, shade canopy kept intact.</div>
+            </div>
+          </div>
+          <div class="sh-pillar">
+            <div class="sh-pillar__icon"><i class="ti ti-home" aria-hidden="true"></i></div>
+            <div>
+              <div class="sh-pillar__title">Coffee retreat</div>
+              <div class="sh-pillar__text">Sheka welcomes visitors who want to learn, relax, and participate in the community — farm walks, tastings, and direct connection to origin for roasters and enthusiasts alike.</div>
+            </div>
+          </div>
+          <div class="sh-pillar">
+            <div class="sh-pillar__icon"><i class="ti ti-users" aria-hidden="true"></i></div>
+            <div>
+              <div class="sh-pillar__title">Neighbours &amp; crops</div>
+              <div class="sh-pillar__text">We support surrounding farmers with materials, training, and market access. We grow our own food so employees eat well — the community thrives alongside the forest.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sh-photos">
+        <img src="https://moplaco.com/assets/img/banner/crops.jpg" alt="Sheka forest landscape" loading="lazy"/>
+        <img src="https://moplaco.com/assets/img/banner/coffee_p1.jpg" alt="Coffee at Sheka" loading="lazy"/>
+        <img src="https://moplaco.com/assets/img/blog/sheka.jpg" alt="Sheka community" loading="lazy"/>
+      </div>
+    </div>
+    <div class="sh-strip" aria-hidden="true">
+      <img src="https://moplaco.com/assets/img/banner/coffee_r1.jpg" alt="" loading="lazy"/>
+      <img src="https://moplaco.com/assets/img/banner/crops.jpg" alt="" loading="lazy"/>
+      <img src="https://moplaco.com/assets/img/banner/coffee_p1.jpg" alt="" loading="lazy"/>
+    </div>
+  </div>
+
+  <!-- STATIONS PANEL -->
+  <div class="fp-panel" id="panel-stations" role="tabpanel">
+    <div class="st-intro">
+      <p>Moplaco operates four washing and processing stations across Sidamo and Yirgacheffe. We buy red cherry directly from surrounding farmers, prepare it to export standard, and ship directly — full traceability to the kebele level. Click any station for details.</p>
+    </div>
+    <div class="st-list" role="list">
+
+      <div class="st-row" id="st-sidamo" role="listitem" onclick="togSt('sidamo')" aria-expanded="false">
+        <div class="st-row__photo">
+          <img src="https://moplaco.com/assets/img/banner/sidamo.jpg" alt="Sidamo Logita washing station" loading="lazy"/>
+          <div class="st-row__photo-cap">
+            <div class="st-row__photo-type">Boutique washing station</div>
+            <div class="st-row__photo-name">Sidamo Logita</div>
+          </div>
+        </div>
+        <div>
+          <div class="st-row__body">
+            <div class="st-row__tags">
+              <span class="st-tag st-tag--gold">Washed</span>
+              <span class="st-tag st-tag--gold">Natural</span>
+              <span class="st-tag">Sidamo region</span>
+              <span class="st-tag">Est. 2017</span>
+            </div>
+            <p class="st-row__summary">Purchased in 2017, Sidamo Logita is Moplaco's newest and most boutique station. It buys red cherry from surrounding smallholders and prepares distinguished lots exported directly — no intermediaries.</p>
+          </div>
+          <div class="st-row__detail">
+            <div class="st-row__spec-grid">
+              <div class="st-spec"><div class="st-spec__label">Established</div><div class="st-spec__value">2017</div></div>
+              <div class="st-spec"><div class="st-spec__label">Type</div><div class="st-spec__value">Boutique washing station</div></div>
+              <div class="st-spec"><div class="st-spec__label">Process</div><div class="st-spec__value">Washed, Natural</div></div>
+              <div class="st-spec"><div class="st-spec__label">Export model</div><div class="st-spec__value">Direct from station</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="st-row" id="st-yirga" role="listitem" onclick="togSt('yirga')" aria-expanded="false">
+        <div class="st-row__photo">
+          <img src="https://moplaco.com/assets/img/banner/yergachefe.jpg" alt="Yirgacheffe Town dry mill" loading="lazy"/>
+          <div class="st-row__photo-cap">
+            <div class="st-row__photo-type">Dry mill</div>
+            <div class="st-row__photo-name">Yirgacheffe Town</div>
+          </div>
+        </div>
+        <div>
+          <div class="st-row__body">
+            <div class="st-row__tags">
+              <span class="st-tag st-tag--gold">Washed</span>
+              <span class="st-tag">Yirgacheffe region</span>
+            </div>
+            <p class="st-row__summary">Our dry mill near Yirgacheffe town handles hulling, sorting, and grading of parchment coffee from the surrounding region — at the heart of the world's most celebrated coffee origin.</p>
+          </div>
+          <div class="st-row__detail">
+            <div class="st-row__spec-grid">
+              <div class="st-spec"><div class="st-spec__label">Location</div><div class="st-spec__value">Near Yirgacheffe town</div></div>
+              <div class="st-spec"><div class="st-spec__label">Type</div><div class="st-spec__value">Dry mill</div></div>
+              <div class="st-spec"><div class="st-spec__label">Function</div><div class="st-spec__value">Hulling, grading, sorting</div></div>
+              <div class="st-spec"><div class="st-spec__label">Output</div><div class="st-spec__value">Washed Yirgacheffe</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="st-row" id="st-chelelectu" role="listitem" onclick="togSt('chelelectu')" aria-expanded="false">
+        <div class="st-row__photo">
+          <img src="https://moplaco.com/assets/img/banner/coffee_p1.jpg" alt="Chelelectu dry mill" loading="lazy"/>
+          <div class="st-row__photo-cap">
+            <div class="st-row__photo-type">Dry mill · Yirgacheffe</div>
+            <div class="st-row__photo-name">Chelelectu</div>
+          </div>
+        </div>
+        <div>
+          <div class="st-row__body">
+            <div class="st-row__tags">
+              <span class="st-tag st-tag--gold">Washed</span>
+              <span class="st-tag">Yirgacheffe</span>
+              <span class="st-tag">Est. 2005</span>
+            </div>
+            <p class="st-row__summary">One of Moplaco's longest-operating sites, acquired in 2005. Two decades refining Yirgacheffe's finest washed lots — a cornerstone of our specialty export programme.</p>
+          </div>
+          <div class="st-row__detail">
+            <div class="st-row__spec-grid">
+              <div class="st-spec"><div class="st-spec__label">Established</div><div class="st-spec__value">2005</div></div>
+              <div class="st-spec"><div class="st-spec__label">Type</div><div class="st-spec__value">Dry mill</div></div>
+              <div class="st-spec"><div class="st-spec__label">Speciality</div><div class="st-spec__value">Yirgacheffe washed</div></div>
+              <div class="st-spec"><div class="st-spec__label">Region</div><div class="st-spec__value">Chelelectu, Yirgacheffe</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="st-row" id="st-chelbesa" role="listitem" onclick="togSt('chelbesa')" aria-expanded="false">
+        <div class="st-row__photo">
+          <img src="https://moplaco.com/assets/img/banner/banner12.jpg" alt="Chelbesa washing station" loading="lazy" onerror="this.src='https://moplaco.com/assets/img/banner/sidamo.jpg'"/>
+          <div class="st-row__photo-cap">
+            <div class="st-row__photo-type">Washing station · Gedeb</div>
+            <div class="st-row__photo-name">Chelbesa</div>
+          </div>
+        </div>
+        <div>
+          <div class="st-row__body">
+            <div class="st-row__tags">
+              <span class="st-tag st-tag--gold">Washed</span>
+              <span class="st-tag">Gedeb district</span>
+              <span class="st-tag">High altitude</span>
+            </div>
+            <p class="st-row__summary">Located in Gedeb — one of Yirgacheffe's highest-altitude sub-regions. Produces some of the most prized washed lots in our portfolio, sourced from local smallholders.</p>
+          </div>
+          <div class="st-row__detail">
+            <div class="st-row__spec-grid">
+              <div class="st-spec"><div class="st-spec__label">District</div><div class="st-spec__value">Gedeb, Yirgacheffe</div></div>
+              <div class="st-spec"><div class="st-spec__label">Type</div><div class="st-spec__value">Washing station</div></div>
+              <div class="st-spec"><div class="st-spec__label">Altitude</div><div class="st-spec__value">High — Gedeb zone</div></div>
+              <div class="st-spec"><div class="st-spec__label">Output</div><div class="st-spec__value">Premium washed Yirgacheffe</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- EXPORT PANEL -->
+  <div class="fp-panel" id="panel-export" role="tabpanel">
+    <div class="ex-body">
+      <p class="ex-intro">Moplaco operates two export facilities — one in Addis Ababa handling all of Ethiopia's origins, and our founding facility in Dire Dawa, the historic gateway for Harar coffee since 1971.</p>
+      <div class="ex-grid">
+        <div class="ex-card">
+          <div class="ex-card__photo">
+            <img src="https://moplaco.com/assets/img/bg/addisababa.jpg" alt="Addis Ababa export facility" loading="lazy"/>
+            <div class="ex-card__photo-ov" aria-hidden="true"></div>
+            <div class="ex-card__photo-label">
+              <div class="ex-card__year">Est. 1998 · 14,000 m²</div>
+              <div class="ex-card__name">Moplaco Addis Ababa</div>
+            </div>
+          </div>
+          <div class="ex-card__body">
+            <p class="ex-card__desc">Our primary facility — 14,000 m² in the heart of Addis Ababa. Dry milling, grading, and export preparation for all origins. In-house Q grader lab on site. Handles Yirgacheffe, Sidamo, Guji, Limu, Sheka, and Jimma.</p>
+          </div>
+        </div>
+        <div class="ex-card">
+          <div class="ex-card__photo">
+            <img src="https://moplaco.com/assets/img/banner/coffee_r1.jpg" alt="Dire Dawa founding facility" loading="lazy"/>
+            <div class="ex-card__photo-ov" aria-hidden="true"></div>
+            <div class="ex-card__photo-label">
+              <div class="ex-card__year">Est. 1971 · Founding facility</div>
+              <div class="ex-card__name">Moplaco Dire Dawa</div>
+            </div>
+          </div>
+          <div class="ex-card__body">
+            <p class="ex-card__desc">Moplaco's original facility established in 1971 in Dire Dawa. Handles our legendary Star Brand Harar lots. The symbol of our founding mission — sharing Harar's Mocca flavour with the world since day one.</p>
+          </div>
+        </div>
+      </div>
+      <div class="ex-note">
+        <i class="ti ti-shield-check" aria-hidden="true"></i>
+        <p>All lots are approved by certified Q graders at our Addis Ababa lab before export. Full moisture, water activity, and sensory grading sign-off. Pre-shipment samples available on request for all buyers. EUDR traceability documentation provided for European markets.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOW PANEL -->
+  <div class="fp-panel" id="panel-flow" role="tabpanel">
+    <div class="fl-body">
+      <div class="fl-title">How cherry becomes green coffee</div>
+      <div class="fl-steps" role="list">
+        <div class="fl-step" role="listitem"><div class="fl-dot"><i class="ti ti-plant" aria-hidden="true"></i></div><div class="fl-lbl">Harvest</div><div class="fl-sub">Hand-picked ripe red cherry from Moplaco farms and partner farmers</div></div>
+        <div class="fl-step" role="listitem"><div class="fl-dot"><i class="ti ti-droplet" aria-hidden="true"></i></div><div class="fl-lbl">Wet process</div><div class="fl-sub">Pulping and fermentation (washed) or skin-on drying (natural / honey)</div></div>
+        <div class="fl-step" role="listitem"><div class="fl-dot"><i class="ti ti-sun" aria-hidden="true"></i></div><div class="fl-lbl">Drying</div><div class="fl-sub">Raised African beds. Target 11–12% moisture. Water activity &lt;0.65 Aw</div></div>
+        <div class="fl-step" role="listitem"><div class="fl-dot"><i class="ti ti-settings" aria-hidden="true"></i></div><div class="fl-lbl">Dry mill</div><div class="fl-sub">Hulling, density sorting, colour grading at Addis or Dire Dawa</div></div>
+        <div class="fl-step" role="listitem"><div class="fl-dot"><i class="ti ti-microscope" aria-hidden="true"></i></div><div class="fl-lbl">QC &amp; cupping</div><div class="fl-sub">Q grader approval — sensory, moisture, and water activity sign-off</div></div>
+        <div class="fl-step" role="listitem"><div class="fl-dot"><i class="ti ti-ship" aria-hidden="true"></i></div><div class="fl-lbl">Export</div><div class="fl-sub">GrainPro bags, EUDR docs, Port of Djibouti to 40+ countries</div></div>
+      </div>
+      <div class="fl-photo-row" aria-hidden="true">
+        <img src="https://moplaco.com/assets/img/banner/crops.jpg" alt="" loading="lazy"/>
+        <img src="https://moplaco.com/assets/img/banner/sidamo.jpg" alt="" loading="lazy"/>
+        <img src="https://moplaco.com/assets/img/banner/coffee_p1.jpg" alt="" loading="lazy"/>
+        <img src="https://moplaco.com/assets/img/banner/yergachefe.jpg" alt="" loading="lazy"/>
+      </div>
+      <div class="fl-specs">
+        <div class="fl-spec"><div class="fl-spec__label">Packaging</div><div class="fl-spec__value">GrainPro-lined 60 kg jute bags. Hermetic seal maintains freshness throughout transit.</div></div>
+        <div class="fl-spec"><div class="fl-spec__label">Shipping route</div><div class="fl-spec__value">Via Port of Djibouti. ~25–35 days to Europe, ~35–45 days to Asia and the Americas.</div></div>
+        <div class="fl-spec"><div class="fl-spec__label">Documentation</div><div class="fl-spec__value">ICO certificate, phytosanitary, COO, organic cert, EUDR traceability data on request.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo-text">MOPLACO TRADING PLC</div>
+          <div class="footer-tagline">Ethiopian Green Coffee Exporter since 1971</div>
+        </div>
+        <nav class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="coffees.html">Our Coffees</a>
+          <a href="farm.html">Farm &amp; Processing</a>
+          <a href="index.html#sustainability">Sustainability</a>
+          <a href="galani.html" class="footer-galani">Galani Coffee</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Moplaco Trading PLC · Addis Ababa, Ethiopia</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/nav.js" defer></script>
+  <script>
+  function swTab(n,btn){
+    document.querySelectorAll('.fp-panel').forEach(function(p){p.classList.remove('active');});
+    document.querySelectorAll('.fp-tab').forEach(function(b){b.classList.remove('active');b.setAttribute('aria-selected','false');});
+    document.getElementById('panel-'+n).classList.add('active');
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected','true');
+  }
+  function togSt(id){
+    var row=document.getElementById('st-'+id);
+    var wasOpen=row.classList.contains('open');
+    document.querySelectorAll('.st-row').forEach(function(r){r.classList.remove('open');r.setAttribute('aria-expanded','false');});
+    if(!wasOpen){row.classList.add('open');row.setAttribute('aria-expanded','true');}
+  }
+  </script>
+</body>
+</html>
