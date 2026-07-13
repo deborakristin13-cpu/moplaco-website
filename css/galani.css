@@ -119,6 +119,77 @@
   margin-top: var(--space-3);
 }
 
+.cafe-card__map {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--gold-galani);
+  margin-top: 8px;
+}
+
+.cafe-card__map i { font-size: 12px; }
+.cafe-card__map:hover { text-decoration: underline; }
+
+/* ── FIND US: MAP + INSTAGRAM ─────────────────────────────────── */
+
+.gal-find-us {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.gal-find-us__map {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  min-height: 280px;
+  border: 0.5px solid var(--parchment-border);
+}
+
+.gal-find-us__map iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  border: 0;
+  display: block;
+}
+
+.gal-find-us__insta {
+  background: var(--espresso);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.gal-find-us__insta i { font-size: 26px; color: var(--gold-galani); margin-bottom: 8px; }
+
+.gal-find-us__insta-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.gal-find-us__insta-handle {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-on-dark);
+  margin-top: 2px;
+}
+
+.gal-find-us__insta p {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 8px 0 14px;
+}
+
 /* ── GALANI LEARNING ─────────────────────────────────────────── */
 
 .gal-learning {
@@ -177,6 +248,7 @@
   .cafe-grid { grid-template-columns: repeat(2, 1fr); }
   .learn-grid { grid-template-columns: 1fr; }
   .gal-photo-strip { grid-template-columns: repeat(2, 1fr); height: 180px; }
+  .gal-find-us { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 600px) {

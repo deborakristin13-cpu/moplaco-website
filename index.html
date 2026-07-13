@@ -56,7 +56,7 @@
         <a href="#insights">Coffee Insights</a>
         <a href="https://www.galanicoffee.com/" target="_blank" rel="noopener" class="nav-galani">Galani Coffee ↗</a>
         <a href="#journal">Updates</a>
-        <a href="#contact" class="nav-cta">Request Samples</a>
+        <a href="#contact" class="nav-cta">Contact Us</a>
       </div>
 
       <!-- Mobile toggle -->
@@ -103,7 +103,7 @@
           from farm to shipment.
         </p>
         <div class="hero__btns">
-          <a href="#contact" class="btn btn--gold">Request Samples</a>
+          <a href="#contact" class="btn btn--gold">Contact Us</a>
           <a href="#coffees" class="btn btn--ghost">Explore Our Coffees</a>
         </div>
       </div>
@@ -337,7 +337,7 @@
     <div class="photo-section" aria-label="Sheka farm">
       <img
         class="photo-section__img"
-        src="https://moplaco.com/assets/img/banner/crops.jpg"
+        src="assets/img/farm/nursery-seedlings.jpg"
         alt="Sheka forest farm, southwest Ethiopia"
       />
       <div class="photo-section__overlay">
@@ -544,7 +544,7 @@
           <article class="post-card" role="listitem">
             <img
               class="post-card__img"
-              src="https://moplaco.com/assets/img/banner/crops.jpg"
+              src="assets/img/farm/coffee-cherries-2.jpg"
               alt="Sheka farm update"
             />
             <div class="post-card__body">
@@ -573,9 +573,9 @@
               Ready to source Ethiopian coffee?
             </h2>
             <p class="section-body">
-              Tell us your origin preference, target cup profile, and required volume.
-              Our team in Addis Ababa responds within 48 hours with availability
-              and samples.
+              Whether you're placing a direct order, want to cup our lots on-site
+              in Addis Ababa, or need export samples shipped to you — choose an
+              option below. Our team responds within 48 hours.
             </p>
             <div class="contact-info">
               <div>📍 Addis Ababa, Ethiopia</div>
@@ -586,35 +586,122 @@
             </div>
           </div>
 
-          <form id="contact-form" class="reveal" novalidate aria-label="Sample request form">
-            <div class="form-field">
-              <label for="f-name" class="sr-only">Your name and company</label>
-              <input id="f-name" name="name" type="text" placeholder="Your name &amp; company" required />
+          <div class="reveal">
+
+            <!-- Contact method tabs -->
+            <div class="contact-tabs" role="tablist" aria-label="Contact options">
+              <button type="button" class="contact-tab active" data-panel="order" role="tab" aria-selected="true" aria-controls="form-order">Direct Order</button>
+              <button type="button" class="contact-tab" data-panel="cupping" role="tab" aria-selected="false" aria-controls="form-cupping">On-Site Cupping</button>
+              <button type="button" class="contact-tab" data-panel="samples" role="tab" aria-selected="false" aria-controls="form-samples">Sample Request</button>
             </div>
-            <div class="form-field">
-              <label for="f-email" class="sr-only">Business email</label>
-              <input id="f-email" name="email" type="email" placeholder="Business email" required />
-            </div>
-            <div class="form-field">
-              <label for="f-origin" class="sr-only">Origin of interest</label>
-              <select id="f-origin" name="origin">
-                <option value="">Origin of interest…</option>
-                <option>Yirgacheffe</option>
-                <option>Sidamo</option>
-                <option>Guji</option>
-                <option>Harrar</option>
-                <option>Limu</option>
-                <option>Sheka (own farm)</option>
-                <option>Multiple / advise me</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label for="f-message" class="sr-only">Volume estimate and requirements</label>
-              <textarea id="f-message" name="message" placeholder="Volume estimate &amp; any specific requirements"></textarea>
-            </div>
-            <button type="submit" class="form-submit">Send Inquiry</button>
+
+            <!-- Branch 1: Direct order — email + what to order -->
+            <form id="form-order" class="contact-panel active" role="tabpanel" novalidate aria-label="Direct order form">
+              <input type="hidden" name="inquiry_type" value="Direct Order" />
+              <p class="contact-panel__intro">Ready to place an order? Tell us your email and what you're looking for — origin, grade, and volume — and our export team will send a formal quote.</p>
+              <div class="form-field">
+                <label for="o-name" class="sr-only">Your name and company</label>
+                <input id="o-name" name="name" type="text" placeholder="Your name &amp; company" required />
+              </div>
+              <div class="form-field">
+                <label for="o-email" class="sr-only">Business email</label>
+                <input id="o-email" name="email" type="email" placeholder="Business email" required />
+              </div>
+              <div class="form-field">
+                <label for="o-order" class="sr-only">What would you like to order?</label>
+                <textarea id="o-order" name="order_details" placeholder="What would you like to order? (e.g. origin, process, grade, volume — 1 container of Yirgacheffe washed, grade 2)" required></textarea>
+              </div>
+              <button type="submit" class="form-submit">Send Order Request</button>
+            </form>
+
+            <!-- Branch 2: Request on-site cupping -->
+            <form id="form-cupping" class="contact-panel" role="tabpanel" novalidate aria-label="On-site cupping request form" hidden>
+              <input type="hidden" name="inquiry_type" value="On-Site Cupping Request" />
+              <p class="contact-panel__intro">Visit our lab in Addis Ababa to cup current lots with our Q graders. Let us know when you'd like to come and how many will attend.</p>
+              <div class="form-field">
+                <label for="c-name" class="sr-only">Your name and company</label>
+                <input id="c-name" name="name" type="text" placeholder="Your name &amp; company" required />
+              </div>
+              <div class="form-field">
+                <label for="c-email" class="sr-only">Business email</label>
+                <input id="c-email" name="email" type="email" placeholder="Business email" required />
+              </div>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="c-date" class="sr-only">Preferred date</label>
+                  <input id="c-date" name="preferred_date" type="date" required />
+                </div>
+                <div class="form-field">
+                  <label for="c-guests" class="sr-only">Number of attendees</label>
+                  <input id="c-guests" name="attendees" type="number" min="1" max="20" placeholder="Attendees" required />
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="c-message" class="sr-only">Origins of interest &amp; notes</label>
+                <textarea id="c-message" name="message" placeholder="Origins you'd like to cup &amp; any other notes"></textarea>
+              </div>
+              <button type="submit" class="form-submit">Request Cupping Session</button>
+            </form>
+
+            <!-- Branch 3: Request samples — weight + distance estimator -->
+            <form id="form-samples" class="contact-panel" role="tabpanel" novalidate aria-label="Sample request form" hidden>
+              <input type="hidden" name="inquiry_type" value="Sample Request" />
+              <p class="contact-panel__intro">Request pre-shipment samples. Estimate your delivery cost below — based on sample weight and destination, using standard DHL Express rates.</p>
+              <div class="form-field">
+                <label for="s-name" class="sr-only">Your name and company</label>
+                <input id="s-name" name="name" type="text" placeholder="Your name &amp; company" required />
+              </div>
+              <div class="form-field">
+                <label for="s-email" class="sr-only">Business email</label>
+                <input id="s-email" name="email" type="email" placeholder="Business email" required />
+              </div>
+              <div class="form-field">
+                <label for="s-origin" class="sr-only">Origin of interest</label>
+                <select id="s-origin" name="origin">
+                  <option value="">Origin of interest…</option>
+                  <option>Yirgacheffe</option>
+                  <option>Sidamo</option>
+                  <option>Guji</option>
+                  <option>Harrar</option>
+                  <option>Limu</option>
+                  <option>Sheka (own farm)</option>
+                  <option>Multiple / advise me</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="s-weight" class="sr-only">Sample weight (kg)</label>
+                  <input id="s-weight" name="sample_weight_kg" type="number" min="0.1" max="30" step="0.1" value="0.5" placeholder="Weight (kg)" required />
+                </div>
+                <div class="form-field">
+                  <label for="s-zone" class="sr-only">Destination</label>
+                  <select id="s-zone" name="destination_zone" required>
+                    <option value="africa_me">East Africa &amp; Middle East</option>
+                    <option value="europe">Europe</option>
+                    <option value="asia" selected>Asia Pacific</option>
+                    <option value="americas">Americas</option>
+                    <option value="row">Rest of World</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Live DHL-style shipping estimate -->
+              <div class="estimator" aria-live="polite">
+                <div class="estimator__row"><span>Handling &amp; base fee</span><span id="est-base">–</span></div>
+                <div class="estimator__row"><span>Weight-based freight</span><span id="est-freight">–</span></div>
+                <div class="estimator__row estimator__row--total"><span>Estimated delivery cost</span><span id="est-total">–</span></div>
+                <p class="estimator__note">Indicative estimate based on standard DHL Express courier rates. Final cost is confirmed by our team once exact packaging weight and destination are verified.</p>
+              </div>
+
+              <div class="form-field">
+                <label for="s-message" class="sr-only">Delivery address &amp; notes</label>
+                <textarea id="s-message" name="message" placeholder="Delivery address &amp; any specific requirements"></textarea>
+              </div>
+              <button type="submit" class="form-submit">Request Samples</button>
+            </form>
+
             <div id="form-status" role="alert" aria-live="polite"></div>
-          </form>
+          </div>
 
         </div>
       </div>
@@ -685,7 +772,12 @@
           var doc = parser.parseFromString(html, 'text/html');
           var content = doc.querySelector('.galani-content');
           if (content) {
-            document.getElementById('page-galani').innerHTML = content.outerHTML;
+            var galaniPage = document.getElementById('page-galani');
+            galaniPage.innerHTML = content.outerHTML;
+            /* Newly injected content has its own .reveal elements —
+               register them with the scroll-reveal observer now that
+               they actually exist in the DOM. */
+            if (window.setupScrollReveal) window.setupScrollReveal(galaniPage);
           }
         })
         .catch(function () {
