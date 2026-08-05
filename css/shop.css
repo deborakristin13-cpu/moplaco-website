@@ -1,0 +1,318 @@
+/* =============================================================
+   SHOP — Shop Green Coffee Samples
+   Page-specific styles for shop.html
+   ============================================================= */
+
+.sp { width: 100%; background: var(--espresso); }
+
+/* ── HEADER ──────────────────────────────────────────────────── */
+
+.sp-header {
+  padding: 40px var(--gutter) 28px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.sp-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-on-dark);
+  line-height: 1.15;
+}
+
+.sp-title em { font-style: italic; color: var(--gold); }
+
+.sp-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 420px;
+  margin-top: 8px;
+}
+
+.sp-header-right { text-align: right; flex-shrink: 0; }
+
+.sp-shipping { font-size: 11px; color: var(--text-muted); line-height: 1.8; }
+.sp-shipping strong { color: var(--gold); font-weight: 600; }
+
+/* ── HOW IT WORKS (5 Easy Steps) — moved above the grid, styled
+     to stand out from both the dark header above and the dark
+     filter/grid below it ── */
+
+.sp-how {
+  background: var(--gold);
+  padding: var(--space-5) var(--gutter);
+}
+
+.sp-how__eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--espresso);
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+
+.sp-how__title {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--espresso);
+  margin-bottom: var(--space-4);
+}
+
+.sp-how-steps {
+  display: flex;
+  position: relative;
+  gap: 12px;
+}
+
+.sp-how-steps::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  border-top: 1.5px dashed rgba(28, 16, 8, 0.35);
+}
+
+.sp-how-step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.sp-how-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--espresso);
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+}
+
+.sp-how-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--espresso);
+  margin-bottom: 4px;
+}
+
+.sp-how-text {
+  font-size: 11px;
+  color: rgba(28, 16, 8, 0.75);
+  line-height: 1.55;
+  padding: 0 4px;
+}
+
+/* ── FILTERS ─────────────────────────────────────────────────── */
+
+.sp-filters {
+  background: var(--espresso-mid);
+  padding: 12px var(--gutter);
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--border-dark);
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.sp-filter-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-right: 4px;
+}
+
+.sp-fbtn {
+  background: transparent;
+  border: 0.5px solid #3A2A18;
+  border-radius: var(--radius-sm);
+  padding: 4px 11px;
+  font-size: 10px;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: all 0.15s;
+}
+
+.sp-fbtn.on { background: var(--gold); color: var(--espresso); border-color: var(--gold); font-weight: 600; }
+.sp-divider { width: 1px; height: 16px; background: var(--border-dark); margin: 0 4px; }
+
+/* ── GRID — 4 per row ────────────────────────────────────────── */
+
+.sp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3px;
+  padding: 3px;
+}
+
+.sp-card {
+  background: var(--espresso-light);
+  cursor: pointer;
+  border: 0.5px solid transparent;
+  transition: border-color 0.15s;
+}
+
+.sp-card:hover { border-color: var(--text-faint); }
+.sp-card.sel { border-color: var(--gold); }
+
+.sp-card-img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  display: block;
+  opacity: 0.65;
+  transition: opacity 0.2s;
+}
+
+.sp-card:hover .sp-card-img, .sp-card.sel .sp-card-img { opacity: 0.85; }
+
+.sp-card-body { padding: 14px; }
+.sp-card-lot { font-size: 9px; font-weight: 600; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 4px; }
+.sp-card-name { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--text-on-dark); margin-bottom: 2px; }
+.sp-card-process { font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase; color: #9A8060; margin-bottom: 10px; }
+.sp-card-notes { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 10px; }
+.sp-note { font-size: 9px; padding: 2px 7px; background: var(--espresso); color: #9A8060; border-radius: var(--radius-sm); }
+.sp-card-footer { display: flex; align-items: center; justify-content: space-between; }
+.sp-card-price { font-size: 12px; font-weight: 600; color: var(--gold); }
+.sp-card-price span { font-size: 9px; color: var(--text-muted); font-weight: 400; }
+.sp-avail { font-size: 9px; padding: 2px 7px; border-radius: var(--radius-sm); }
+.sp-avail-yes { background: rgba(29, 158, 117, 0.15); color: #5DCAA5; border: 0.5px solid rgba(29, 158, 117, 0.3); }
+.sp-avail-ltd { background: rgba(212, 168, 71, 0.12); color: var(--gold); border: 0.5px solid rgba(212, 168, 71, 0.3); }
+.sp-avail-sold { background: rgba(28, 16, 8, 0.5); color: var(--text-faint); border: 0.5px solid var(--border-dark); }
+
+/* ── DETAIL PANEL (coffee profile) ──────────────────────────── */
+
+.sp-detail { background: var(--parchment-warm); display: none; }
+.sp-detail.open { display: block; }
+.sp-detail-inner { display: grid; grid-template-columns: 280px 1fr; }
+.sp-detail-photo { position: relative; min-height: 300px; }
+.sp-detail-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.sp-detail-photo-cap { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(28, 16, 8, 0.8); padding: 12px 16px; }
+.sp-detail-lot { font-size: 9px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 3px; }
+.sp-detail-name { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--text-on-dark); }
+.sp-detail-right { padding: var(--space-3) 28px; }
+.sp-detail-desc { font-size: 12px; color: #6B5030; line-height: 1.8; margin-bottom: 16px; }
+
+.sp-profile-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9A6030;
+  margin-bottom: 8px;
+}
+
+.sp-specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+.sp-spec { background: #fff; border: 0.5px solid var(--parchment-border); border-radius: var(--radius-sm); padding: 9px 12px; }
+.sp-spec-l { font-size: 9px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #9A6030; margin-bottom: 3px; }
+.sp-spec-v { font-size: 11px; color: var(--espresso); line-height: 1.4; }
+
+/* Flavour profile bars */
+.sp-flavors { margin-bottom: 18px; }
+.sp-frow { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.sp-fname { font-size: 11px; color: #6B5030; width: 88px; flex-shrink: 0; }
+.sp-ftrack { flex: 1; height: 3px; background: #E8DCC8; border-radius: 2px; }
+.sp-ffill { height: 3px; background: var(--gold); border-radius: 2px; transition: width 0.4s ease; }
+
+.sp-order-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 14px; }
+.sp-size { border: 0.5px solid var(--parchment-border); border-radius: var(--radius-sm); padding: 10px 8px; text-align: center; cursor: pointer; background: #fff; transition: all 0.15s; }
+.sp-size.on { border-color: var(--espresso); background: var(--espresso); }
+.sp-size-weight { font-size: 12px; font-weight: 600; color: var(--espresso); display: block; margin-bottom: 2px; }
+.sp-size.on .sp-size-weight { color: var(--text-on-dark); }
+.sp-size-price { font-size: 10px; color: #7A6040; }
+.sp-size.on .sp-size-price { color: var(--gold); }
+.sp-size-label { font-size: 9px; color: #9A8060; margin-top: 2px; display: block; }
+.sp-size.on .sp-size-label { color: var(--text-muted); }
+
+.sp-order-btn {
+  width: 100%;
+  background: var(--espresso);
+  color: var(--text-on-dark);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.sp-order-btn:hover { background: var(--espresso-light); }
+.sp-order-note { font-size: 11px; color: #9A8060; margin-top: 8px; text-align: center; }
+
+/* ── MODAL ───────────────────────────────────────────────────── */
+
+.sp-modal-wrap {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(28, 16, 8, 0.92);
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 200;
+}
+
+.sp-modal-wrap.open { display: flex; }
+.sp-modal { background: var(--parchment-warm); border-radius: var(--radius-sm); width: 100%; max-width: 480px; max-height: 90vh; overflow-y: auto; }
+.sp-modal-header { background: var(--espresso); padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; }
+.sp-modal-title { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--text-on-dark); }
+.sp-modal-close { background: none; border: none; color: var(--text-muted); font-size: 18px; cursor: pointer; font-family: var(--font-body); line-height: 1; }
+.sp-modal-body { padding: 20px; }
+.sp-modal-lot { font-size: 11px; color: #9A6030; font-weight: 600; letter-spacing: 0.06em; margin-bottom: 12px; }
+.sp-modal-field { margin-bottom: 10px; }
+.sp-modal-field label { display: block; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #9A6030; margin-bottom: 4px; }
+.sp-modal-field label .req { color: #B0402E; }
+.sp-modal-field input, .sp-modal-field textarea, .sp-modal-field select {
+  width: 100%; background: #fff; border: 0.5px solid var(--parchment-border); border-radius: var(--radius-sm);
+  padding: 8px 12px; font-family: var(--font-body); font-size: 12px; color: var(--espresso);
+}
+.sp-modal-field textarea { height: 60px; resize: none; }
+.sp-modal-submit {
+  width: 100%; background: var(--espresso); color: var(--text-on-dark); border: none; border-radius: var(--radius-sm);
+  padding: 11px; font-family: var(--font-body); font-size: 12px; font-weight: 600; letter-spacing: 0.06em;
+  text-transform: uppercase; cursor: pointer;
+}
+.sp-modal-footer { font-size: 10px; color: #9A8060; text-align: center; margin-top: 8px; }
+.sp-modal-error { display: none; font-size: 11px; color: #B0402E; background: rgba(176,64,46,0.1); border-radius: var(--radius-sm); padding: 8px 10px; margin-bottom: 10px; }
+.sp-modal-error.show { display: block; }
+
+/* ── RESPONSIVE ──────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .sp-grid { grid-template-columns: repeat(2, 1fr); }
+  .sp-detail-inner { grid-template-columns: 1fr; }
+  .sp-detail-photo { min-height: 200px; }
+  .sp-how-steps { flex-wrap: wrap; gap: 20px; }
+  .sp-how-steps::before { display: none; }
+  .sp-how-step { flex: 1 1 calc(33% - 14px); }
+  .sp-specs-grid { grid-template-columns: 1fr; }
+  .sp-order-row { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 560px) {
+  .sp-grid { grid-template-columns: 1fr; }
+  .sp-how-step { flex: 1 1 100%; }
+  .sp-order-row { grid-template-columns: 1fr 1fr; }
+}
