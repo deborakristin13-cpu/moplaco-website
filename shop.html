@@ -27,10 +27,10 @@
       <a href="index.html">Home</a>
       <a href="coffees.html">Our Coffees</a>
       <a href="farm.html">Farm &amp; Processing</a>
-      <a href="shop.html" style="color:var(--gold);">Shop Samples</a>
-      <a href="index.html#sustainability">Sustainability</a>
+      <a href="index.html#sustainability">EUDR Compliance</a>
       <a href="https://www.galanicoffee.com/" target="_blank" rel="noopener" class="nav-galani">Galani Coffee ↗</a>
-      <a href="index.html#contact" class="nav-cta">Contact Us</a>
+      <a href="index.html#contact">Contact Us</a>
+      <a href="shop.html" class="nav-cta">Shop Samples</a>
     </div>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
       <span></span><span></span><span></span>
@@ -364,7 +364,7 @@
      form (see js/form.js) — replace FORMSPREE_ENDPOINT below with
      your form's endpoint from https://formspree.io.
 
-     ORDER NUMBERS: each submission gets a "Samples Order no. 00N"
+     ORDER NUMBERS: each submission gets a "Coffee Order No. 00N"
      subject line via Formspree's built-in "_subject" field, so
      Selam and Hana can tell requests apart in their inbox. Because
      this is a static site with no shared database, the counter is
@@ -427,7 +427,7 @@
     submitBtn.disabled = true;
 
     var payload = {
-      _subject: 'Samples Order no. ' + orderNo,
+      _subject: 'Coffee Order No. ' + orderNo,
       order_number: orderNo,
       name: name,
       email: email,

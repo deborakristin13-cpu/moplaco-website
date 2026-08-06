@@ -5,6 +5,20 @@
 
 /* ── NAVIGATION ─────────────────────────────────────────────── */
 
+/* On index.html, .site-nav and .tab-bar share a <header> wrapper —
+   a sticky element can only stay stuck for as long as its own
+   parent's box is on screen, and a bare <header> shrinks to fit its
+   children, giving .site-nav almost no room to stick within. So the
+   <header> itself is the sticky container there, keeping nav +
+   tab-bar frozen together for the whole page scroll. On the other
+   pages .site-nav has no <header> wrapper (it's a direct child of
+   <body>), so it also needs position: sticky of its own. */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
 .site-nav {
   position: sticky;
   top: 0;
