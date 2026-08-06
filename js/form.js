@@ -15,7 +15,7 @@
   'use strict';
 
   /* ── CONFIGURATION — edit this ─────────────────────────── */
-  var FORMSPREE_ENDPOINT = 'https://formspree.io/f/REPLACE_WITH_YOUR_ID';
+  var FORMSPREE_ENDPOINT = 'https://formspree.io/f/xyegyowr';
   /* ────────────────────────────────────────────────────────── */
 
   var status = document.getElementById('form-status');
