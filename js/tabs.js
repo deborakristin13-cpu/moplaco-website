@@ -12,20 +12,22 @@
   const tabBtns  = document.querySelectorAll('.tab-bar__tab');
 
   function showPage(name) {
-    /* Hide all pages */
+    /* Unknown page name (e.g. a same-page section anchor like #contact
+       or #story, not a real tab) — do nothing and leave whichever
+       page is currently showing alone, so the browser's native
+       fragment scroll to that section still works. */
+    const target = document.getElementById('page-' + name);
+    if (!target) return;
+
+    /* Hide all pages, then show the target one */
     pages.forEach(function (p) {
       p.hidden = true;
       p.setAttribute('aria-hidden', 'true');
     });
-
-    /* Show target page */
-    const target = document.getElementById('page-' + name);
-    if (target) {
-      target.hidden = false;
-      target.setAttribute('aria-hidden', 'false');
-      /* Scroll to top of content, not entire window */
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    target.hidden = false;
+    target.setAttribute('aria-hidden', 'false');
+    /* Scroll to top of content, not entire window */
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
     /* Update tab bar active state */
     tabBtns.forEach(function (btn) {

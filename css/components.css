@@ -609,8 +609,30 @@ header {
 /* ── CONTACT FORM ────────────────────────────────────────────── */
 
 .contact-section {
+  position: relative;
   background: var(--parchment);
   padding: var(--section-pad);
+  overflow: hidden;
+}
+
+.contact-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/img/farm/coffee-cherries-2.jpg') center / cover no-repeat;
+  opacity: 0.16;
+}
+
+.contact-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--parchment) 0%, rgba(240,230,204,.88) 100%);
+}
+
+.contact-section .container {
+  position: relative;
+  z-index: 1;
 }
 
 .contact-info {
