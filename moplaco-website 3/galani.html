@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  galani.html — Galani Coffee brand page
+  This file is loaded dynamically into index.html by js/tabs.js.
+  It can also be opened standalone for development/preview.
+  The .galani-content wrapper is required for the dynamic loader.
+-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Galani Coffee — Addis Ababa's specialty café and SCA-certified training centre, by Moplaco Trading PLC." />
+  <title>Galani Coffee — A Moplaco Brand</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,400&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tabler Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+
+  <!-- Styles (only needed when opened standalone) -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/galani.css" />
+</head>
+
+<body>
+<!-- ════════════════════════════════════════════════════════════
+     .galani-content — the dynamic loader in index.html extracts
+     this div and injects it into #page-galani.
+     Keep this wrapper intact.
+═════════════════════════════════════════════════════════════ -->
+<div class="galani-content">
+
+  <!-- 1. GALANI HERO ────────────────────────────────────────── -->
+  <section class="gal-hero" aria-label="Galani Coffee hero">
+    <img
+      class="gal-hero__img"
+      src="https://static.wixstatic.com/media/6b97f7_1cd6b60029ce466797fe53f574cce1f5~mv2.jpg/v1/crop/x_0,y_483,w_5464,h_7226/fill/w_960,h_720,al_c,q_80/097A7024.jpg"
+      alt="Galani Coffee interior, Addis Ababa"
+      onerror="this.src='https://moplaco.com/assets/img/banner/coffee_p1.jpg'"
+    />
+    <div class="gal-hero__overlay" aria-hidden="true"></div>
+    <div class="gal-hero__content">
+      <span class="eyebrow eyebrow--galani">A Moplaco Brand · Addis Ababa · Est. 2018</span>
+      <h1 class="gal-hero__headline">
+        Where the origin<br>
+        meets the <em>cup.</em>
+      </h1>
+      <p class="gal-hero__sub">
+        Galani Coffee bridges Moplaco's farm-to-export expertise with the daily
+        lives of Addis Ababa. Five cafés, SCA-certified training, and the finest
+        Ethiopian coffee — roasted and served with purpose.
+      </p>
+      <div class="hero__btns">
+        <a href="#gal-cafes" class="btn btn--warm">Visit a Café</a>
+        <a href="#gal-learning" class="btn btn--ghost">Coffee Learning</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. GALANI STATS BAR ────────────────────────────────────── -->
+  <div class="gal-stats-bar" aria-label="Galani key figures">
+    <div class="gal-stat-item">
+      <span class="gal-stat-num">5</span>
+      <span class="gal-stat-label">Cafés in Addis Ababa</span>
+    </div>
+    <div class="gal-stat-item">
+      <span class="gal-stat-num">SCA</span>
+      <span class="gal-stat-label">Certified training</span>
+    </div>
+    <div class="gal-stat-item">
+      <span class="gal-stat-num">100%</span>
+      <span class="gal-stat-label">Ethiopian Arabica</span>
+    </div>
+    <div class="gal-stat-item">
+      <span class="gal-stat-num">Farm → Cup</span>
+      <span class="gal-stat-label">Full chain ownership</span>
+    </div>
+  </div>
+
+  <!-- 3. ABOUT GALANI ────────────────────────────────────────── -->
+  <section class="gal-about section" id="gal-about" aria-labelledby="gal-about-heading">
+    <div class="container">
+      <div class="two-col">
+
+        <div class="reveal">
+          <span class="eyebrow eyebrow--muted">The story</span>
+          <h2 class="section-heading" id="gal-about-heading">
+            Born from a river, built on coffee
+          </h2>
+          <p class="section-body">
+            Galani took its name from the River Gelan, which runs from the Bale
+            mountains down to Arba Minch, crossing many of Ethiopia's great coffee
+            regions. In those areas, coffee beans are carried on the backs of donkeys
+            — and that journey inspired both the name and the Galani logo.
+          </p>
+          <p class="section-body">
+            Galani Coffee was born from the passion and need to share Ethiopia's
+            extraordinary coffee with a wider public. We are in the birthplace of
+            this magic seed — and we only wish to offer our friends and customers
+            the real taste of Ethiopia, well roasted and well served.
+          </p>
+          <p class="section-body">
+            As Moplaco's consumer-facing brand, Galani proves what our beans are
+            capable of at their best — in the cup, in the community, in the classroom.
+            Everything served at Galani is sourced, processed, and roasted by the
+            Moplaco family.
+          </p>
+          <blockquote style="border-left:2px solid var(--gold-galani);padding-left:16px;margin:24px 0;">
+            <p style="font-family:var(--font-display);font-style:italic;font-size:16px;color:var(--text-light-primary);line-height:1.55;">
+              "We believe in quality. Quality is not an accident but the result of
+              hard work that allows us to set the bar high and mark the detail that
+              sets us apart."
+            </p>
+            <cite style="font-size:11px;color:var(--gold-galani);font-style:normal;letter-spacing:0.06em;text-transform:uppercase;">
+              Galani Coffee
+            </cite>
+          </blockquote>
+        </div>
+
+        <div class="photo-grid reveal" aria-label="Galani café photography">
+          <img
+            class="photo-grid__tall"
+            src="https://static.wixstatic.com/media/6b97f7_69fd0e5ddd824752914cf7f909697b08~mv2.jpg/v1/fit/w_480,h_640,q_90/097A6934.jpg"
+            alt="Galani café interior"
+            onerror="this.src='https://moplaco.com/assets/img/banner/sidamo.jpg'"
+          />
+          <img
+            src="https://static.wixstatic.com/media/6b97f7_bddcf7fb0fed4863ab619779560aa9c2~mv2.jpg/v1/fit/w_480,h_640,q_90/097A7038.jpg"
+            alt="Galani coffee preparation"
+            onerror="this.src='https://moplaco.com/assets/img/banner/coffee_p1.jpg'"
+          />
+          <img
+            src="https://static.wixstatic.com/media/6b97f7_1cd6b60029ce466797fe53f574cce1f5~mv2.jpg/v1/crop/x_0,y_1851,w_5464,h_4490/fill/w_480,h_320,q_80/097A7024.jpg"
+            alt="Galani display shelf"
+            onerror="this.src='https://moplaco.com/assets/img/banner/yergachefe.jpg'"
+          />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. OUR CAFÉS ───────────────────────────────────────────── -->
+  <section class="gal-cafes" id="gal-cafes" aria-labelledby="gal-cafes-heading">
+    <div class="container">
+      <span class="eyebrow eyebrow--dark reveal">Find us</span>
+      <h2 class="section-heading reveal" id="gal-cafes-heading">
+        Five locations across Addis Ababa
+      </h2>
+      <p class="section-body reveal">
+        Each Galani café serves Moplaco-sourced coffee, prepared by trained baristas
+        in a space that celebrates Ethiopian coffee culture. Walk in, or order online
+        via Deliver Addis.
+      </p>
+
+      <div class="cafe-grid reveal" role="list">
+
+        <div class="cafe-card" role="listitem">
+          <i class="ti ti-coffee cafe-card__icon" aria-hidden="true"></i>
+          <div class="cafe-card__name">Jacross Branch</div>
+          <div class="cafe-card__hours">Tuesday – Sunday · 8am – 7pm</div>
+          <div class="cafe-card__phone">+251 905 055 565</div>
+        </div>
+
+        <div class="cafe-card" role="listitem">
+          <i class="ti ti-coffee cafe-card__icon" aria-hidden="true"></i>
+          <div class="cafe-card__name">Lebu Branch</div>
+          <div class="cafe-card__hours">Daily · 8am – 8pm</div>
+          <div class="cafe-card__phone">+251 941 290 634</div>
+        </div>
+
+        <div class="cafe-card" role="listitem">
+          <i class="ti ti-coffee cafe-card__icon" aria-hidden="true"></i>
+          <div class="cafe-card__name">Churchill Branch</div>
+          <div class="cafe-card__hours">Daily · 7:30am – 7pm</div>
+          <div class="cafe-card__phone">+251 956 777 776</div>
+        </div>
+
+        <div class="cafe-card" role="listitem">
+          <i class="ti ti-coffee cafe-card__icon" aria-hidden="true"></i>
+          <div class="cafe-card__name">Entoto Branch</div>
+          <div class="cafe-card__hours">Saturday – Sunday · 8am – 6pm</div>
+          <div class="cafe-card__phone">+251 963 155 262</div>
+        </div>
+
+        <div class="cafe-card" role="listitem">
+          <i class="ti ti-coffee cafe-card__icon" aria-hidden="true"></i>
+          <div class="cafe-card__name">Seba Dereja Branch</div>
+          <div class="cafe-card__hours">Daily · 8am – 8pm</div>
+          <div class="cafe-card__phone">+251 913 414 565</div>
+        </div>
+
+        <!-- Order online -->
+        <div class="gal-order-box" role="listitem" aria-label="Order online">
+          <i class="ti ti-map-pin" aria-hidden="true"></i>
+          <div class="gal-order-box__label">Can't visit? Order online via</div>
+          <a
+            href="https://deliveraddis.com/restaurants/galani"
+            target="_blank"
+            rel="noopener"
+            class="gal-order-box__link"
+          >
+            Deliver Addis →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. LEARNING ─────────────────────────────────────────────── -->
+  <section class="gal-learning" id="gal-learning" aria-labelledby="gal-learning-heading">
+    <div class="container">
+      <span class="eyebrow reveal">Coffee education</span>
+      <h2 class="section-heading section-heading--light reveal" id="gal-learning-heading">
+        Galani Learning — SCA Certified Training
+      </h2>
+      <p class="section-body section-body--light reveal" style="max-width:580px;">
+        Training is what pushes all of us to understand and treat coffee as it deserves —
+        professionally and with respect. Galani offers SCA-certified courses from beginner
+        all the way to professional level, taught on Moplaco's own lots.
+      </p>
+
+      <div class="learn-grid reveal" role="list">
+
+        <div class="learn-card" role="listitem">
+          <div class="learn-card__title">Introduction to Coffee</div>
+          <div class="learn-card__desc">
+            Perfect for those starting their coffee journey. Covers origins, varieties,
+            processing methods, and basic brewing fundamentals using Ethiopian coffees.
+          </div>
+          <span class="learn-card__badge">SCA Certified</span>
+        </div>
+
+        <div class="learn-card" role="listitem">
+          <div class="learn-card__title">Barista Skills</div>
+          <div class="learn-card__desc">
+            Hands-on espresso technique, milk steaming, workflow, and sensory evaluation.
+            Designed for aspiring baristas and café professionals.
+          </div>
+          <span class="learn-card__badge">SCA Certified</span>
+        </div>
+
+        <div class="learn-card" role="listitem">
+          <div class="learn-card__title">Brewing &amp; Filter Methods</div>
+          <div class="learn-card__desc">
+            Explore pour-over, Chemex, AeroPress, and other manual methods with a focus
+            on showcasing the complexity of Ethiopian single-origins.
+          </div>
+          <span class="learn-card__badge">SCA Certified</span>
+        </div>
+
+        <div class="learn-card" role="listitem">
+          <div class="learn-card__title">Sensory &amp; Cupping</div>
+          <div class="learn-card__desc">
+            Professional cupping protocols, the SCA flavour wheel, and origin
+            identification. Train your palate on Moplaco's own green coffee lots
+            from Yirgacheffe, Sidamo, Guji, and Harrar.
+          </div>
+          <span class="learn-card__badge">SCA Certified</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. PHOTO STRIP ─────────────────────────────────────────── -->
+  <div
+    class="gal-photo-strip"
+    aria-label="Galani Coffee photography"
+    role="img"
+  >
+    <img
+      src="https://static.wixstatic.com/media/6b97f7_69fd0e5ddd824752914cf7f909697b08~mv2.jpg/v1/fit/w_480,h_640,q_90/097A6934.jpg"
+      alt="Galani café scene"
+      onerror="this.src='https://moplaco.com/assets/img/banner/sidamo.jpg'"
+    />
+    <img
+      src="https://static.wixstatic.com/media/6b97f7_bddcf7fb0fed4863ab619779560aa9c2~mv2.jpg/v1/fit/w_480,h_640,q_90/097A7038.jpg"
+      alt="Coffee preparation at Galani"
+      onerror="this.src='https://moplaco.com/assets/img/banner/coffee_p1.jpg'"
+    />
+    <img
+      src="https://static.wixstatic.com/media/6b97f7_1cd6b60029ce466797fe53f574cce1f5~mv2.jpg/v1/crop/x_0,y_1851,w_5464,h_4490/fill/w_480,h_320,q_80/097A7024.jpg"
+      alt="Galani display"
+      onerror="this.src='https://moplaco.com/assets/img/banner/yergachefe.jpg'"
+    />
+    <img
+      src="https://moplaco.com/assets/img/banner/crops.jpg"
+      alt="Ethiopian coffee origin"
+    />
+  </div>
+
+  <!-- 7. BACK-TO-MOPLACO BRIDGE ──────────────────────────────── -->
+  <div class="bridge-banner" aria-label="Moplaco Trading PLC">
+    <p class="bridge-banner__text">
+      Galani is the consumer face of <strong>Moplaco Trading PLC</strong> —
+      Ethiopia's green coffee exporter since 1971. Every cup served here
+      traces back to our farms and washing stations.
+    </p>
+    <button class="btn btn--outline-gold" data-tab="moplaco">
+      Explore Moplaco Export →
+    </button>
+  </div>
+
+  <!-- 8. GALANI FOOTER ────────────────────────────────────────── -->
+  <footer class="site-footer" aria-label="Galani footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo-text">GALANI COFFEE</div>
+          <div class="footer-tagline">A Moplaco Trading PLC Brand · Addis Ababa</div>
+        </div>
+        <nav class="footer-links" aria-label="Galani footer navigation">
+          <a href="#gal-about">Our story</a>
+          <a href="https://www.galanicoffee.com/cafe-menus" target="_blank" rel="noopener">Café menus</a>
+          <a href="#gal-learning">Learning</a>
+          <a href="https://www.galanicoffee.com/events" target="_blank" rel="noopener">Events</a>
+          <a href="https://deliveraddis.com/restaurants/galani" target="_blank" rel="noopener">Order online</a>
+          <a href="#moplaco" data-tab="moplaco" class="footer-galani">Moplaco Export</a>
+        </nav>
+        <div class="footer-social" aria-label="Social media">
+          <a href="https://www.instagram.com/galanicoffee/" target="_blank" rel="noopener" aria-label="Galani Coffee on Instagram">
+            <i class="ti ti-brand-instagram" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.facebook.com/GalaniCoffee/" target="_blank" rel="noopener" aria-label="Galani Coffee on Facebook">
+            <i class="ti ti-brand-facebook" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Moplaco Trading PLC · Galani Coffee · Addis Ababa, Ethiopia</p>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /galani-content -->
+</body>
+</html>
