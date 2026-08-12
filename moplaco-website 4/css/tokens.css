@@ -1,0 +1,84 @@
+/* =============================================================
+   MOPLACO TRADING PLC — Design Tokens
+   Single source of truth. Edit here, applies everywhere.
+   ============================================================= */
+
+:root {
+
+  /* ── COLOUR PALETTE ─────────────────────────────────────── */
+
+  /* Espresso family (primary dark) */
+  --espresso:        #1C1008;   /* nav, hero bg, dark sections    */
+  --espresso-deep:   #100A04;   /* footer                         */
+  --espresso-mid:    #241508;   /* tab bar, Galani dark sections  */
+  --espresso-light:  #2E1E0C;   /* card fills, dividers on dark   */
+
+  /* Gold family (Moplaco accent) */
+  --gold:            #D4A847;   /* primary CTA, highlights        */
+  --gold-hover:      #E0B855;   /* gold on hover                  */
+  --gold-galani:     #C8A96A;   /* Galani softer accent           */
+  --gold-faint:      rgba(212, 168, 71, 0.10); /* watermark       */
+
+  /* Parchment family (light backgrounds) */
+  --parchment:       #F0E6CC;   /* stats bar, contact bg          */
+  --parchment-warm:  #FAF6EE;   /* alt section background         */
+  --parchment-border:#DDD0AE;   /* borders on parchment           */
+
+  /* Text on dark backgrounds */
+  --text-on-dark:    #F0E6CC;   /* primary text on espresso       */
+  --text-muted:      #7A6448;   /* secondary text on dark         */
+  --text-faint:      #4A3420;   /* subtle labels, footer          */
+  --text-veryfaint:  #3A2A18;   /* footer links                   */
+
+  /* Text on light backgrounds */
+  --text-light-primary:  #1C1008;
+  --text-light-secondary:#7A6040;
+
+  /* Border colours */
+  --border-dark:     #2E1E0C;   /* dividers on dark               */
+  --border-light:    #CDBF9A;   /* form inputs on parchment       */
+
+  /* ── TYPOGRAPHY ─────────────────────────────────────────── */
+
+  --font-display: 'Lora', Georgia, serif;
+  --font-body:    'Outfit', system-ui, -apple-system, sans-serif;
+
+  /* Type scale */
+  --text-xxl:   52px;   /* hero h1                     */
+  --text-xl:    38px;   /* section h2 (large)          */
+  --text-lg:    28px;   /* section h2                  */
+  --text-md:    18px;   /* card h3                     */
+  --text-base:  15px;   /* body                        */
+  --text-sm:    13px;   /* secondary body              */
+  --text-xs:    11px;   /* eyebrow, labels, captions   */
+  --text-xxs:    9px;   /* footer copy                 */
+
+  /* ── SPACING (8px base grid) ────────────────────────────── */
+
+  --space-1:   8px;
+  --space-2:  16px;
+  --space-3:  24px;
+  --space-4:  32px;
+  --space-5:  48px;
+  --space-6:  64px;
+  --space-7:  80px;
+
+  /* Section padding shorthand */
+  --section-pad: var(--space-6) var(--space-5);
+
+  /* ── BORDERS & RADIUS ───────────────────────────────────── */
+
+  --radius-sm:  2px;   /* buttons, tags, cards — sharp, premium  */
+  --radius-md:  4px;   /* form inputs                            */
+
+  /* ── TRANSITIONS ────────────────────────────────────────── */
+
+  --transition-fast:  0.15s ease;
+  --transition-base:  0.25s ease;
+
+  /* ── LAYOUT ─────────────────────────────────────────────── */
+
+  --max-width:      1200px;
+  --content-width:   960px;
+  --gutter:           44px;
+}
